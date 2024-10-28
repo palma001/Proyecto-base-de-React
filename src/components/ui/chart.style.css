@@ -1,0 +1,61 @@
+.highcharts-chart {
+  background-color: #fff; /* Color de fondo del gráfico */
+  border: 1px solid #ddd; /* Borde del gráfico */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra del gráfico */
+}
+
+.highcharts-title {
+  font-size: 16px; /* Tamaño de la fuente del título */
+  font-weight: bold; /* Peso de la fuente del título */
+  color: #333; /* Color del título */
+}
+
+.highcharts-subtitle {
+  font-size: 12px; /* Tamaño de la fuente del subtítulo */
+  color: #666; /* Color del subtítulo */
+}
+
+.highcharts-axis-title {
+  font-size: 14px; /* Tamaño de la fuente del título del eje */
+  font-weight: bold; /* Peso de la fuente del título del eje */
+  color: #333; /* Color del título del eje */
+}
+
+.highcharts-axis-labels {
+  font-size: 15px; /* Tamaño de la fuente de las etiquetas del eje */
+  color: #666; /* Color de las etiquetas del eje */
+}
+
+.highcharts-tooltip {
+  background-color: #fff; /* Color de fondo del tooltip */
+  border: 1px solid #ddd; /* Borde del tooltip */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra del tooltip */
+  padding: 10px; /* Relleno del tooltip */
+}
+
+.highcharts-tooltip text {
+  font-size: 12px; /* Tamaño de la fuente del texto del tooltip */
+  color: #333; /* Color del texto del tooltip */
+}
+
+.highcharts-series-line {
+  stroke-width: 2px; /* Ancho de la línea de la serie */
+}
+
+.highcharts-series-column {
+  width: 80%; /* Ancho de la columna de la serie */
+}
+
+.highcharts-series-pie {
+  innerSize: 50%; /* Tamaño interior del gráfico de tarta */
+}
+
+.highcharts-point {
+  stroke-width: 2px; /* Ancho del borde del punto de datos */
+  fill-opacity: 0.8; /* Opacidad del relleno del punto de datos */
+}
+
+.highcharts-point.highcharts-active {
+  stroke-width: 4px; /* Ancho del borde del punto de datos activo */
+  fill-opacity: 1; /* Opacidad del relleno del punto de datos activo */
+}
