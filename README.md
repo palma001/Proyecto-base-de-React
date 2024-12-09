@@ -32,3 +32,4 @@ npm run build
 - [Luis Palma](https://github.com/palma001)
 - [Ramon Ojeda](https://github.com/reof07)
 - [Alexis Hernandez](https://github.com/alexisrhc)
+- [Jose Rodriguez](https://github.com/agustinjrf)
