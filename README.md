@@ -28,7 +28,7 @@ npm run build
 
 ## Colaboradores
 
-- [Qbits](https://github.com/Qbits)
+- [Qbits](https://github.com/qbitsdev02)
 - [Luis Palma](https://github.com/palma001)
 - [Ramon Ojeda](https://github.com/reof07)
 - [Alexis Hernandez](https://github.com/alexisrhc)
