@@ -1,9 +1,9 @@
 export default function App() {
   return (
     <>
-      {/* <title>asd</title> */}
+      <title>App</title>
       <div>
-        Example
+        Appss
       </div>
     </>
   )
