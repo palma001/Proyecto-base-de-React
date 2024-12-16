@@ -5,15 +5,14 @@ import {
   NavbarMenu,
   NavbarMenuItem,
   NavbarContent,
-  NavbarItem,
-  Link,
-  Button,
+  NavbarItem
 } from "@nextui-org/react";
 import { ROUTES } from "../../routes/routes"
+import { Link } from "react-router";
 
 export default function App() {
-    const router = ROUTES;
-    const menuItems = [
+  const router = ROUTES;
+  const menuItems = [
     "Profile",
     "Dashboard",
     "Activity",
@@ -34,31 +33,35 @@ export default function App() {
 
       <NavbarContent className="sm:hidden pr-3" justify="center">
         <NavbarBrand className="w-full">
-          <img src="/image/quanto.png" alt="Quanto" />
+          <Link to="/">
+            <img src="/image/quanto.png" alt="Quanto" />
+          </Link>
         </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex sm:gap-8" justify="center">
         <NavbarBrand>
-          <img src="/image/quanto.png" alt="Quanto" />
+          <Link to="/">
+            <img src="/image/quanto.png" alt="Quanto" />
+          </Link>
         </NavbarBrand>
         <NavbarItem>
-          <Link className="text-sm" color="foreground" href="#">
+          <Link to="/" className="text-sm" color="foreground">
             Inicio
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link className="text-sm" color="foreground" href="#">
+          <Link to="/#" className="text-sm" color="foreground">
             Planes y suscripciones
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link className="text-sm" color="foreground" href="#">
+          <Link to="/#" className="text-sm" color="foreground">
             Punto de venta virtual
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link className="text-sm" color="foreground" href="#">
+          <Link to="/#" className="text-sm" color="foreground">
             Tiendas registradas
           </Link>
         </NavbarItem>
@@ -66,31 +69,35 @@ export default function App() {
 
       <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
-        <Button as={Link} href={`${router.AUTH}/${router.REGISTER}`} variant="bordered" className="rounded-full border-quanto text-quanto">
+          <Link
+            className="rounded-full border-2 p-2 text-sm border-quanto text-quanto"
+            to={`${router.AUTH}/${router.REGISTER}`}
+          >
             Abrir una tienda
-          </Button>
+          </Link>
         </NavbarItem>
         <NavbarItem>
-          <Button as={Link} href={`${router.AUTH}/${router.LOGIN}`} variant="solid" className="rounded-full bg-quanto text-white">
+          <Link
+            className="rounded-full p-2.5 text-sm bg-quanto text-white"
+            to={`${router.AUTH}/${router.LOGIN}`}
+          >
             Iniciar sesión
-          </Button>
+          </Link>
         </NavbarItem>
       </NavbarContent>
 
       <NavbarMenu>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
-            <Link
+            <Link to="/#"
               className="w-full"
               color={
                 index === 2
                   ? "warning"
                   : index === menuItems.length - 1
-                  ? "danger"
-                  : "foreground"
+                    ? "danger"
+                    : "foreground"
               }
-              href="#"
-              size="lg"
             >
               {item}
             </Link>
