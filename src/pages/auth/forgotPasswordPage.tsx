@@ -5,6 +5,7 @@ import { ROUTES } from "../../routes/routes";
 import { forgotPasswordRule } from "../../rules/authRules";
 import { ForgotPasswordInterface } from "../../interfaces/Auth";
 import { NavLink } from "react-router";
+import { Link } from "react-router-dom";
 
 export default function ForgotPasswordPage() {
   const router = ROUTES;
@@ -63,9 +64,9 @@ export default function ForgotPasswordPage() {
       <span className="h-[0.2px] bg-quanto/50"></span>
       <div className="flex justify-center items-center text-xs">
         <div className="">
-          <a href="#" >
+          <Link to="/authentication/register">
             No tienes una cuenta? <span className="text-quanto">Regístrate ahora</span>
-          </a>
+          </Link>
         </div>
       </div>
     </div>
