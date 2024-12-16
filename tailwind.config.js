@@ -15,7 +15,7 @@ export default {
         nunito: ['"Nunito Sans"', 'sans-serif'],
       },
       colors: {
-        quanto: '#8B5DFF',
+        quanto: '#6A42C2',
       },
     },
   },

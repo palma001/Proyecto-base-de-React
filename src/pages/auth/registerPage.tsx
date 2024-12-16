@@ -1,36 +1,55 @@
-import { Button, Checkbox, Input } from "@nextui-org/react";
+import { Button, Input } from "@nextui-org/react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { ROUTES } from "../../routes/routes";
-import { authRule } from "../../rules/authRules";
-import { NavLink, Link} from "react-router";
-import { LoginFormInterface } from "../../interfaces/Auth";
+import { registerRule } from "../../rules/authRules";
+import { Link } from "react-router";
+import { RegisterFormInterface } from "../../interfaces/Auth";
 
 export default function LoginPage() {
-  const router = ROUTES;
 
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: zodResolver(authRule),
+    resolver: zodResolver(registerRule),
   });
 
-  const authLogin = (data :  any | LoginFormInterface) => { 
-    console.log(data)
-  }
+  const handleRegisterData = (data: any | RegisterFormInterface) => {
+    console.log(data);
+  };
 
   return (
     <div className="grid gap-3">
       <div className="place-content-start w-full">
-        <h3 className="text-xl font-bold">Bienvenido de nuevo</h3>
+        <h3 className="text-xl font-bold">Bienvenido</h3>
       </div>
-      <form onSubmit={handleSubmit(authLogin)}>
-        <div className="flex flex-col flex-wrap gap-5 relative">
+      <form onSubmit={handleSubmit(handleRegisterData)}>
+        <div className="flex flex-col flex-wrap gap-5 lg:grid lg:grid-cols-2">
+        <Input
+            radius="none"
+            isClearable
+            label="Nombre"
+            type="text"
+            size="sm"
+            {...register("name", { required: true })}
+            errorMessage={errors?.name?.message?.toString()}
+            isInvalid={!!errors?.name}
+          />
           <Input
             radius="none"
+            isClearable
+            label="Apellido"
+            type="text"
+            size="sm"
+            {...register("lastname", { required: true })}
+            errorMessage={errors?.lastname?.message?.toString()}
+            isInvalid={!!errors?.lastname}
+          />
+          <Input
+            radius="none"
+            className="col-span-2"
             isClearable
             label="Correo electrónico"
             type="email"
@@ -39,42 +58,70 @@ export default function LoginPage() {
             errorMessage={errors?.email?.message?.toString()}
             isInvalid={!!errors?.email}
           />
-          <FieldPassword {...register("password", { required: true })} errors={errors?.password} />
-          <div className="flex justify-between items-center text-xs">
-            <Checkbox size="sm">
-              <span className="text-sx">Recuérdame</span>
-            </Checkbox>
-
+          <Input
+            radius="none"
+            isClearable
+            label="Nombre de usuario"
+            type="text"
+            size="sm"
+            {...register("username", { required: true })}
+            errorMessage={errors?.username?.message?.toString()}
+            isInvalid={!!errors?.username}
+          />
+          <Input
+            radius="none"
+            isClearable
+            label="Teléfono"
+            type="tel"
+            size="sm"
+            {...register("phone", { required: true })}
+            errorMessage={errors?.phone?.message?.toString()}
+            isInvalid={!!errors?.phone}
+          />
+          <Input
+            radius="none"
+            className="col-span-2"
+            isClearable
+            label="Dirección"
+            type="text"
+            size="sm"
+            {...register("address", { required: true })}
+            errorMessage={errors?.address?.message?.toString()}
+            isInvalid={!!errors?.address}
+          />
+          <FieldPassword
+            {...register("password", { required: true })}
+            errors={errors?.password}
+          />
+          <FieldPassword
+            {...register("confirmPassword", { required: true })}
+            errors={errors?.confirmPassword}
+          />
+          <div className="flex flex-col flex-wrap gap-5 col-span-2">
             <div>
-              <NavLink to={`${router.AUTH}/${router.FORGOT_PASSWORD}`} className="text-quanto" end>
-                Olvidé mi contraseña
-              </NavLink>
+              <Button
+                className="bg-quanto text-white"
+                fullWidth
+                size="sm"
+                radius="none"
+                isLoading={false}
+                type="submit"
+              >
+                Registrarme
+              </Button>
             </div>
-          </div>
-          <div>
-            <Button
-              className="bg-quanto text-white"
-              fullWidth
-              size="sm"
-              radius="none"
-              isLoading={false}
-              type="submit"
-            >
-              Iniciar sesión
-            </Button>
           </div>
         </div>
       </form>
       <span className="h-[0.2px] bg-quanto/50"></span>
       <div className="flex justify-center items-center text-xs">
-        <div className="">
-          <Link to="/authentication/register">
-            No tienes una cuenta? <span className="text-quanto">Regístrate ahora</span>
-          </Link>
-        </div>
+        <Link to="/authentication/login">
+          Ya tienes una cuenta?{" "}
+          <span className="text-quanto">Inicia sesión aquí</span>
+        </Link>
       </div>
     </div>
-  )
+  );
 }
 
 const FieldPassword = (props: any) => {
@@ -104,8 +151,8 @@ const FieldPassword = (props: any) => {
       radius="none"
       size="sm"
     />
-  )
-}
+  );
+};
 
 const EyeSlashFilledIcon = (props: any) => {
   return (
