@@ -1,15 +1,12 @@
-import { Button, Checkbox, Input } from "@nextui-org/react";
+import { Button, Input } from "@nextui-org/react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { ROUTES } from "../../routes/routes";
 import { registerRule } from "../../rules/authRules";
-import { NavLink } from "react-router";
-import { LoginFormInterface } from "../../interfaces/Auth";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
+import { RegisterFormInterface } from "../../interfaces/Auth";
 
 export default function LoginPage() {
-  const router = ROUTES;
 
   const {
     register,
@@ -19,18 +16,18 @@ export default function LoginPage() {
     resolver: zodResolver(registerRule),
   });
 
-  const authLogin = (data: any | LoginFormInterface) => {
+  const handleRegisterData = (data: any | RegisterFormInterface) => {
     console.log(data);
   };
 
   return (
     <div className="grid gap-3">
       <div className="place-content-start w-full">
-        <h3 className="text-xl font-bold">Bienvenido a Quanto</h3>
+        <h3 className="text-xl font-bold">Bienvenido</h3>
       </div>
-      <form onSubmit={handleSubmit(authLogin)}>
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 relative">
-          <Input
+      <form onSubmit={handleSubmit(handleRegisterData)}>
+        <div className="flex flex-col flex-wrap gap-5 lg:grid lg:grid-cols-2">
+        <Input
             radius="none"
             isClearable
             label="Nombre"
@@ -100,22 +97,7 @@ export default function LoginPage() {
             {...register("confirmPassword", { required: true })}
             errors={errors?.confirmPassword}
           />
-          <div className="flex flex-col flex-wrap gap-5 w-[500px]">
-            <div className="flex justify-between items-center text-xs">
-              <Checkbox size="sm">
-                <span className="text-sx">Recuérdame</span>
-              </Checkbox>
-
-              <div>
-                <NavLink
-                  to={`${router.AUTH}/${router.FORGOT_PASSWORD}`}
-                  className="text-quanto"
-                  end
-                >
-                  Olvidé mi contraseña
-                </NavLink>
-              </div>
-            </div>
+          <div className="flex flex-col flex-wrap gap-5 col-span-2">
             <div>
               <Button
                 className="bg-quanto text-white"
@@ -125,7 +107,7 @@ export default function LoginPage() {
                 isLoading={false}
                 type="submit"
               >
-                Iniciar sesión
+                Registrarme
               </Button>
             </div>
           </div>
@@ -133,12 +115,10 @@ export default function LoginPage() {
       </form>
       <span className="h-[0.2px] bg-quanto/50"></span>
       <div className="flex justify-center items-center text-xs">
-        <div className="">
-          <Link to="/authentication/login">
-            Ya tienes una cuenta?{" "}
-            <span className="text-quanto">Inicia sesión aquí</span>
-          </Link>
-        </div>
+        <Link to="/authentication/login">
+          Ya tienes una cuenta?{" "}
+          <span className="text-quanto">Inicia sesión aquí</span>
+        </Link>
       </div>
     </div>
   );
@@ -174,7 +154,7 @@ const FieldPassword = (props: any) => {
   );
 };
 
-export const EyeSlashFilledIcon = (props: any) => {
+const EyeSlashFilledIcon = (props: any) => {
   return (
     <svg
       aria-hidden="true"
@@ -210,7 +190,7 @@ export const EyeSlashFilledIcon = (props: any) => {
   );
 };
 
-export const EyeFilledIcon = (props: any) => {
+const EyeFilledIcon = (props: any) => {
   return (
     <svg
       aria-hidden="true"

@@ -4,9 +4,8 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ROUTES } from "../../routes/routes";
 import { authRule } from "../../rules/authRules";
-import { NavLink } from "react-router";
+import { NavLink, Link} from "react-router";
 import { LoginFormInterface } from "../../interfaces/Auth";
-import { Link } from "react-router-dom";
 
 export default function LoginPage() {
   const router = ROUTES;
@@ -108,7 +107,7 @@ const FieldPassword = (props: any) => {
   )
 }
 
-export const EyeSlashFilledIcon = (props: any) => {
+const EyeSlashFilledIcon = (props: any) => {
   return (
     <svg
       aria-hidden="true"
@@ -144,7 +143,7 @@ export const EyeSlashFilledIcon = (props: any) => {
   );
 };
 
-export const EyeFilledIcon = (props: any) => {
+const EyeFilledIcon = (props: any) => {
   return (
     <svg
       aria-hidden="true"

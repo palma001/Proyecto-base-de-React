@@ -24,6 +24,9 @@ export const registerRule = z.object({
     .min(1, { message: 'La contrasaña es obligatoria' }),
   confirmPassword: z.string()
     .min(1, { message: 'La contraseña de confirmación es obligatoria' }),
+}).refine(data => data.password === data.confirmPassword, {
+  message: "Las contraseñas no coinciden",
+  path: ["confirmPassword"], // Path where the error message should appear
 })
 
 export const forgotPasswordRule = z.object({
