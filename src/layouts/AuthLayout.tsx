@@ -12,9 +12,6 @@ export default function AuthLayout() {
             <img src="/image/quanto.svg" alt="quanto tienda online" />
             Quanto
           </div>
-          {/* <div className="w-[80%] mx-auto">
-            <h3 className="text-xl font-bold">Bienvenido de nuevo</h3>
-          </div> */}
           <div className="w-[90%] md:max-w-[80%] mx-auto">
             <Outlet />
           </div>

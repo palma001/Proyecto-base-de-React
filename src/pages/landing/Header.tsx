@@ -3,7 +3,7 @@ import { Button, Link } from "@nextui-org/react";
 export default function App() {
   return (
     <>
-      <div className="w-full flex flex-col justify-center items-center min-h-[300px]">
+      <div className="w-full flex flex-col justify-center items-center min-h-[300px] p-5">
         <div className="max-w-5xl w-full ">
           <p className="text-3xl font-medium text-quanto">
             Tu tienda ahora en la web
@@ -32,7 +32,9 @@ export default function App() {
           </div>
         </div>
       </div>
-      <img src="/image/header.png" alt="Quanto" />
+      <div className="overflow-hidden">
+        <img src="/image/header.png" alt="Quanto" className="min-w-[840px]" />
+      </div>
     </>
   );
 }

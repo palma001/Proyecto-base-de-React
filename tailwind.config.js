@@ -16,6 +16,7 @@ export default {
       },
       colors: {
         quanto: '#6A42C2',
+        quantoDark: '#3D3864',
       },
     },
   },
