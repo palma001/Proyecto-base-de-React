@@ -9,8 +9,7 @@ export default function AuthLayout() {
         </div>
         <div className="flex flex-col col-span-5 md:col-span-2 py-20 gap-4 relative">
           <div className="flex gap-2 items-center justify-center text-quanto font-semibold">
-            <img src="/image/quanto.svg" alt="quanto tienda online" />
-            Quanto
+            <img src="/image/quanto.png" alt="quanto tienda online" />
           </div>
           <div className="w-[90%] md:max-w-[80%] mx-auto">
             <Outlet />

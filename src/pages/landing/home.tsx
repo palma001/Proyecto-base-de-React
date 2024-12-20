@@ -8,7 +8,7 @@ import Pricing from "./Pricing";
 export default function Home() {
   return (
     <>
-      <title>Home | Tienda</title>
+      <title>Home | Quanto</title>
       <Navbar />
       <Header />
       <SwiperStores ContainerStyles={"my-20"} />

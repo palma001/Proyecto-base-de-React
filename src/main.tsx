@@ -8,6 +8,7 @@ import { ROUTES } from "./routes/routes";
 import LoginPage from "./pages/auth/loginPage";
 import RegisterPage from "./pages/auth/registerPage";
 import Home from "./pages/landing/home";
+import Stores from "./pages/landing/stores";
 import ForgotPasswordPage from "./pages/auth/forgotPasswordPage";
 
 const root = document.getElementById("root");
@@ -19,6 +20,7 @@ ReactDOM.createRoot(root!).render(
         <Routes>
 
           <Route path={ROUTES.HOME} element={<Home />} />
+          <Route path={ROUTES.STORES} element={<Stores />} />
 
           <Route path={ROUTES.AUTH} element={<AuthLayout />}>
             <Route path={ROUTES.LOGIN} element={<LoginPage />} />
