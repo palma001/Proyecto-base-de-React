@@ -61,7 +61,7 @@ export default function App() {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link to="/#" className="text-sm" color="foreground">
+          <Link to="/stores" className="text-sm" color="foreground">
             Tiendas registradas
           </Link>
         </NavbarItem>
