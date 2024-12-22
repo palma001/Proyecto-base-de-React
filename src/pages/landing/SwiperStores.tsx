@@ -1,8 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCards } from "swiper/modules";
 import { Button } from "@nextui-org/react";
-import "swiper/css";
-import "swiper/css/effect-cards";
+import "swiper/swiper-bundle.css";
 
 export default function App({ ContainerStyles = "" }) {
   return (
