@@ -1,87 +1,47 @@
-import Navbar from "./Navbar";
-import Header from "./Header";
-import SwiperStores from "./SwiperStores";
-import Video from "./Video";
-import Footer from "./Footer";
-import Pricing from "./Pricing";
+import { Link } from "@nextui-org/react";
+import { subtitle, title } from "../../components/primitives";
+import { button } from "@nextui-org/theme";
+import { LandingLayout } from "../../layouts/LandingLayout";
+import { ROUTES } from "../../routes/routes";
 
 export default function Home() {
   return (
-    <>
-      <title>Home | Quanto</title>
-      <Navbar />
-      <Header />
-      <SwiperStores ContainerStyles={"my-20"} />
-      <Video
-        embedId={"-zBkQspWAVk?si=GIlo-cT9GfI8Pgjo"}
-        title={"Comienza a vender"}
-        subtitle={"en solo unos clics"}
-        description={"Crea y configura tu tienda en simples pasos"}
-        textDescription={
-          "📢 Visita nuestro canal de youtube para ver tutoriales cortos y consejos sobre Quanto"
-        }
-        isPointer={true}
-      />
-      <div className="flex flex-col items-center justify-center w-full my-16 p-5">
-        <div className="max-w-4xl w-full">
-          <p className={`text-quantoDark text-2xl font-semibold mr-3 `}>
-            Personaliza tu tienda en línea
-          </p>
-          <h1 className={` w-full text-quanto text-4xl font-bold`}>
-            Agrega tus colores, productos y servicios
-          </h1>
-          <img
-            src="/image/example2.png"
-            alt="example page"
-            className="w-full"
-          />
+    <LandingLayout>
+      <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10 h-[calc(100vh-200px)]">
+        <div className="inline-block max-w-4xl text-center justify-center">
+          <span className={title({ color: "green" })}>
+            ¡Juega Online y Diviértete al Máximo!
+          </span>
+          <br />
+          <br />
+          <span className={title()}>Juegos,&nbsp;</span>
+          <span className={title({ color: "yellow" })}>Diversión &nbsp;</span>
+          <span className={title({ color: "blue" })}>y más.&nbsp;</span>
+          <br />
+          <br />
+          <span className="text-2xl">
+            Descubre los mejores juegos, compite con amigos y disfruta sin
+            límites.
+          </span>
+          <div className={subtitle({ class: "mt-4" })}>
+            ¿Listo para ganar dinero mientras juegas? ¡Es hora de comenzar!
+          </div>
         </div>
-      </div>
-      <div className="flex flex-col items-center justify-center w-full my-20 p-5">
-        <div className="max-w-4xl w-full">
-          <p
-            className={`text-quantoDark text-right text-2xl font-semibold mr-3 `}
-          >
-            Personaliza tu tienda en línea
-          </p>
-          <h1 className={` w-full text-quanto text-right text-4xl font-bold`}>
-            Agrega tus colores, productos y servicios
-          </h1>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-4 gap-5 mt-10">
-          <img src="/image/example.png" alt="example page" className="w-full" />
-          <img src="/image/example.png" alt="example page" className="w-full" />
-          <img src="/image/example.png" alt="example page" className="w-full" />
-          <img src="/image/example.png" alt="example page" className="w-full" />
-        </div>
-      </div>
-      <div className="flex flex-col items-center justify-center w-full my-16 p-5">
-        <div className="max-w-4xl w-full flex flex-col gap-2">
-          <p className="text-gray-400">Sobre nuestro punto de venta virtual</p>
-          <p className="text-4xl font-bold">Recibe pagos desde tu tienda con QPay</p>
-          <p className="text-xl font-semibold text-gray-500">Pagos 24/7 directo a tu cuenta bancaria</p>
-          <img
-            src="/image/qpay_banner.png"
-            alt="qpay banner"
-            className="w-full"
-          />
-        </div>
-      </div>
 
-      <Video
-        embedId={"-zBkQspWAVk?si=GIlo-cT9GfI8Pgjo"}
-        titleStyle={"text-2xl text-quantoDark"}
-        title={"La pasarela de pagos que tu negocio necesita 🚀💳"}
-        subtitleStyle={"hidden"}
-        subtitle={""}
-        description={
-          "Tu tienda en Quanto no solo sirve como un catálogo, también puedes recibir pagos con QPay, igual a un punto de venta normal pero desde la web. QPay está certificado en seguridad por el BNC."
-        }
-        textDescription={"Conoce más de QPay en la página oficial."}
-        isPointer={false}
-      />
-      <Pricing />
-      <Footer />
-    </>
+        <div className="flex gap-3">
+          <Link
+            className={button({
+              color: "primary",
+              radius: "full",
+              variant: "shadow",
+              size: "lg",
+            })}
+            href={ROUTES.REGISTER}
+          >
+            Únete Ahora
+          </Link>
+        </div>
+      </section>
+    </LandingLayout>
   );
 }

@@ -4,14 +4,12 @@ export const authRule = z.object({
   email: z.string()
     .email({ message: 'Correo Electrónico no válido' }),
   password: z.string()
-    .min(1, { message: 'La contrasaña es obligatoria' })
+    .min(1, { message: 'La contraseña es obligatoria' })
 })
 
 export const registerRule = z.object({
   name: z.string()
     .min(1, { message: 'El nombre es obligatorio' }),
-  lastname: z.string()
-    .min(1, { message: 'El apellido es obligatorio' }),
   email: z.string()
     .email({ message: 'Correo Electrónico no válido' }),
   username: z.string()
@@ -21,7 +19,7 @@ export const registerRule = z.object({
   address: z.string()
     .min(1, { message: 'La dirección es obligatoria' }),
   password: z.string()
-    .min(1, { message: 'La contrasaña es obligatoria' }),
+    .min(1, { message: 'La contraseña es obligatoria' }),
   confirmPassword: z.string()
     .min(1, { message: 'La contraseña de confirmación es obligatoria' }),
 }).refine(data => data.password === data.confirmPassword, {

@@ -1,5 +1,5 @@
 export interface LoginFormInterface {
-    email: string;
+    username: string;
     password: string;
 }
 
@@ -13,7 +13,6 @@ export interface RegisterFormInterface {
     email: string
     username: string
     phone: string
-    address: string
     password: string
     confirmPassword: string
 }
