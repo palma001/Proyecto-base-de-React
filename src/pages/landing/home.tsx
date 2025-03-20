@@ -20,7 +20,7 @@ export default function Home() {
             })}
             href={ROUTES.REGISTER}
           >
-            Registrate ahora
+            Regístrate ahora
           </Link>
         </div>
       </section>

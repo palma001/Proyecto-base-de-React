@@ -5,6 +5,9 @@ export interface LoginFormInterface {
 
 export interface ForgotPasswordInterface {
     email: string;
+}
+
+export interface ResetPasswordInterface {
     password: string;
     confirmPassword: string;
 }

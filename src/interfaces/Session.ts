@@ -4,7 +4,6 @@ export interface SessionData {
     data: User;
 }
 
-
 export interface User {
     id: number;
     address: string;

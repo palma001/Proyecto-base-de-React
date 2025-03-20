@@ -9,6 +9,7 @@ import RegisterPage from "./pages/auth/registerPage";
 import Home from "./pages/landing/home";
 import Stores from "./pages/landing/stores";
 import ForgotPasswordPage from "./pages/auth/forgotPasswordPage";
+import ResetPasswordPage from "./pages/auth/resetPasswordPage";
 import { Provider } from "./provider";
 import DASHBOARD from "./pages/admin/home/page";
 import AdminLayout from "./pages/admin/layout";
@@ -51,6 +52,10 @@ if (domNode) {
                 <Route
                   path={ROUTES.FORGOT_PASSWORD}
                   element={<ForgotPasswordPage />}
+                />
+                <Route
+                  path={ROUTES.RESET_PASSWORD}
+                  element={<ResetPasswordPage />}
                 />
               </Route>
             </Routes>
