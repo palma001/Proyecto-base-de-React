@@ -1,18 +1,22 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Accordion, AccordionItem, Link } from "@heroui/react";
-import {
-  FaGear,
-  FaCoins,
-  FaCreditCard,
-  FaUser,
-  FaUserGear,
-  FaLandmark,
-} from "react-icons/fa6";
 import { LuLayoutPanelLeft } from "react-icons/lu";
-import { FaChartPie } from "react-icons/fa";
-import { FaBuilding, FaBuildingUser } from "react-icons/fa6";
-import { FaFolder } from "react-icons/fa";
-import { FaRegRectangleList } from "react-icons/fa6";
+import {
+  FaBuilding,
+  FaBuildingUser,
+  FaPiggyBank,
+  FaFileInvoiceDollar,
+  FaRegRectangleList,
+  FaGear, 
+  FaUser, 
+  FaUserGear, 
+  FaLandmark
+} from "react-icons/fa6";
+import { PiInvoice } from "react-icons/pi";
+import { BiMoneyWithdraw } from "react-icons/bi";
+import { IoIosPricetags } from "react-icons/io";
+import { IoDocument } from "react-icons/io5";
+import { FaFolder, FaUserLock, FaChartPie } from "react-icons/fa";
 
 interface DrawerProps {
   isOpen: boolean;
@@ -22,7 +26,6 @@ const navbarItems = [
   {
     icon: LuLayoutPanelLeft,
     text: "Panel de control",
-    disable: true,
     children: [
       {
         icon: FaChartPie,
@@ -36,29 +39,23 @@ const navbarItems = [
     text: "Licitaciones",
     children: [
       {
-        icon: FaBuilding,
+        icon: IoIosPricetags,
         text: "Licitar | Cotizar",
-        href: "#",
-      },
-      {
-        icon: FaBuildingUser,
-        text: "Compradores",
         href: "#",
       },
     ],
   },
   {
-    icon: FaRegRectangleList,
+    icon: FaFileInvoiceDollar,
     text: "Impuestos y libros",
-    disable: true,
     children: [
       {
-        icon: FaBuilding,
-        text: "Licitar / cotizar",
+        icon: BiMoneyWithdraw,
+        text: "Facturación",
         href: "#",
       },
       {
-        icon: FaBuildingUser,
+        icon: PiInvoice,
         text: "Retenciones",
         href: "#",
       },
@@ -67,11 +64,10 @@ const navbarItems = [
   {
     icon: FaFolder,
     text: "Documentos",
-    disable: true,
     children: [
       {
-        icon: FaBuilding,
-        text: "Listar documentos",
+        icon: IoDocument,
+        text: "Gestión de documentos",
         href: "#",
       },
     ],
@@ -102,15 +98,25 @@ const navbarItems = [
         href: "/admin/banks",
       },
       {
-        icon: FaCoins,
-        text: "Monedas",
-        href: "/admin/currencies",
+        icon: FaPiggyBank,
+        text: "Cuentas bancarias",
+        href: "#",
       },
       {
-        icon: FaCreditCard,
-        text: "Métodos de pago",
-        href: "/admin/payment-methods",
+        icon: FaBuilding,
+        text: "Empresas",
+        href: "/admin/companies",
       },
+      // {
+      //   icon: FaCoins,
+      //   text: "Monedas",
+      //   href: "/admin/currencies",
+      // },
+      // {
+      //   icon: FaCreditCard,
+      //   text: "Métodos de pago",
+      //   href: "/admin/payment-methods",
+      // },
       {
         icon: FaUser,
         text: "Usuarios",
@@ -121,6 +127,11 @@ const navbarItems = [
         text: "Roles",
         href: "/admin/roles",
       },
+      {
+        icon: FaUserLock,
+        text: "Permisos",
+        href: "#",
+      },
     ],
   },
 ];
@@ -128,7 +139,7 @@ const navbarItems = [
 export default function Drawer({ isOpen }: DrawerProps) {
   return (
     <div
-      className={`fixed top-16 px-3 bottom-0 dark:bg-gray-900 border-r-1 border-gray-400 border-opacity-30 w-64 transition-transform duration-300 ease-in-out ${
+      className={`fixed top-16 px-3 bottom-0 dark:bg-gray-900 border-r-1 border-gray-400 border-opacity-30 w-full z-20 sm:w-64 transition-transform duration-300 ease-in-out ${
         isOpen ? "translate-x-0" : "-translate-x-full"
       }`}
     >
