@@ -17,7 +17,7 @@ export default function ResetPasswordPage() {
 
   const navigate = useNavigate();
 
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const token = searchParams.get("token");
   const email = searchParams.get("email");
   
