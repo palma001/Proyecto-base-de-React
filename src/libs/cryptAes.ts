@@ -1,5 +1,5 @@
+import CryptoJS from 'crypto-js';
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import CryptoJS from "crypto-js";
 
 export const encryptData = (data: any) => {
   try {
