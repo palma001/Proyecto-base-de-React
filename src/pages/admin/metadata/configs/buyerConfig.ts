@@ -1,49 +1,46 @@
-import userRule from "./rules/userRule";
+import buyerRule from "./rules/buyerRule";
 
 /**
  * Config table of warehouse entity
  * @type {TableConfigProps}
  */
-export const tableUserConfig = {
+export const tableBuyerConfig = {
   defaultPagination: {
     pageIndex: 0,
     pageSize: 20,
   },
-  link: "users",
+  link: "buyers",
   columns: [
     {
       header: "Nombre",
       accessorKey: "name",
     },
     {
-      header: "Apellido",
-      accessorKey: "last_name",
-    },
-    {
-      header: "Nombre de usuario",
-      accessorKey: "username",
+      header: "Email",
+      accessorKey: "email",
     },
     {
       header: "Teléfono",
       accessorKey: "phone_number",
     },
     {
-      header: "Dirección",
-      accessorKey: "address",
+      header: "Observaciones",
+      accessorKey: "observations",
     },
     {
-      header: "Documento",
-      accessorKey: "document_number",
-    },
+      header: "Empresa",
+      accessorKey: "company",
+      // accessorFn: (row: any) => row.role?.name,
+    }
   ],
 };
 /**
  * Config form of warehouse entity
  * @type {FormConfigProps}
  */
-export const formUserConfig = {
-  title: "usuario",
-  formSchema: userRule,
+export const formBuyerConfig = {
+  title: "comprador",
+  formSchema: buyerRule,
   fields: [
     {
       name: "email",
@@ -64,24 +61,6 @@ export const formUserConfig = {
       filter: true
     },
     {
-      name: "last_name",
-      label: "Apellido",
-      type: "text",
-      required: true,
-      component: "q-input",
-      placeholder: "Ingresa el apellido",
-      filter: true
-    },
-    {
-      name: "username",
-      label: "Nombre de usuario",
-      type: "text",
-      required: true,
-      component: "q-input",
-      placeholder: "Ingresa el nombre de usuario",
-      filter: true
-    },
-    {
       name: "phone_number",
       label: "Teléfono",
       type: "text",
@@ -91,21 +70,21 @@ export const formUserConfig = {
       filter: true
     },
     {
-      name: "address",
-      label: "Dirección",
+      name: "observations",
+      label: "Observaciones",
       type: "text",
       required: true,
       component: "q-input",
-      placeholder: "Ingresa la dirección",
+      placeholder: "Ingresa las observaciones",
       filter: true
     },
     {
-      name: "document_number",
-      label: "Documento",
+      name: "company",
+      label: "Empresa",
       type: "text",
       required: true,
       component: "q-input",
-      placeholder: "Ingresa el documento",
+      placeholder: "Ingresa la empresa",
       filter: true
     }
   ],

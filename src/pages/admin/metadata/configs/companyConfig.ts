@@ -1,27 +1,23 @@
-import userRule from "./rules/userRule";
+import companyRule from "./rules/companyRule";
 
 /**
  * Config table of warehouse entity
  * @type {TableConfigProps}
  */
-export const tableUserConfig = {
+export const tableCompanyConfig = {
   defaultPagination: {
     pageIndex: 0,
     pageSize: 20,
   },
-  link: "users",
+  link: "companies",
   columns: [
     {
       header: "Nombre",
       accessorKey: "name",
     },
     {
-      header: "Apellido",
-      accessorKey: "last_name",
-    },
-    {
-      header: "Nombre de usuario",
-      accessorKey: "username",
+      header: "RIF",
+      accessorKey: "rif_number",
     },
     {
       header: "Teléfono",
@@ -35,25 +31,20 @@ export const tableUserConfig = {
       header: "Documento",
       accessorKey: "document_number",
     },
+    {
+      header: "Representante legal",
+      accessorKey: "legalAgent",
+    }
   ],
 };
 /**
  * Config form of warehouse entity
  * @type {FormConfigProps}
  */
-export const formUserConfig = {
-  title: "usuario",
-  formSchema: userRule,
+export const formCompanyConfig = {
+  title: "compañia",
+  formSchema: companyRule,
   fields: [
-    {
-      name: "email",
-      label: "Correo",
-      type: "text",
-      required: true,
-      component: "q-input",
-      placeholder: "Ingresa el correo",
-      filter: true
-    },
     {
       name: "name",
       label: "Nombre",
@@ -64,21 +55,12 @@ export const formUserConfig = {
       filter: true
     },
     {
-      name: "last_name",
-      label: "Apellido",
+      name: "rif_number",
+      label: "RIF",
       type: "text",
       required: true,
       component: "q-input",
-      placeholder: "Ingresa el apellido",
-      filter: true
-    },
-    {
-      name: "username",
-      label: "Nombre de usuario",
-      type: "text",
-      required: true,
-      component: "q-input",
-      placeholder: "Ingresa el nombre de usuario",
+      placeholder: "Ingresa el RIF",
       filter: true
     },
     {
@@ -88,6 +70,15 @@ export const formUserConfig = {
       required: true,
       component: "q-input",
       placeholder: "Ingresa el teléfono",
+      filter: true
+    },
+    {
+      name: "email",
+      label: "Correo",
+      type: "text",
+      required: true,
+      component: "q-input",
+      placeholder: "Ingresa el correo",
       filter: true
     },
     {
@@ -106,6 +97,33 @@ export const formUserConfig = {
       required: true,
       component: "q-input",
       placeholder: "Ingresa el documento",
+      filter: true
+    },
+    {
+      name: "legalAgent",
+      label: "Representante legal",
+      type: "text",
+      required: true,
+      component: "q-input",
+      placeholder: "Ingresa el representante legal",
+      filter: true
+    },
+    {
+      name: "logo",
+      label: "Logo",
+      type: "text",
+      required: true,
+      component: "q-input",
+      placeholder: "Ingresa el logo",
+      filter: true
+    },
+    {
+      name: "stamp",
+      label: "Sello",
+      type: "text",
+      required: true,
+      component: "q-input",
+      placeholder: "Ingresa el sello",
       filter: true
     }
   ],
