@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import userRule from "./rules/userRule";
 
 /**
@@ -21,21 +20,24 @@ export const tableUserConfig = {
       accessorKey: "name",
     },
     {
-      header: "Número de teléfono",
-      accessorKey: "phone_number",
+      header: "Apellido",
+      accessorKey: "last_name",
     },
     {
       header: "Nombre de usuario",
       accessorKey: "username",
     },
     {
-      header: "Correo electrónico",
-      accessorKey: "email",
+      header: "Teléfono",
+      accessorKey: "phone_number",
     },
     {
-      header: "Rol",
-      accessorKey: "role",
-      accessorFn: (row: any) => row?.role?.name || "-",
+      header: "Dirección",
+      accessorKey: "address",
+    },
+    {
+      header: "Documento",
+      accessorKey: "document_number",
     },
   ],
 };
@@ -48,21 +50,31 @@ export const formUserConfig = {
   formSchema: userRule,
   fields: [
     {
+      name: "email",
+      label: "Correo",
+      type: "text",
+      required: true,
+      component: "q-input",
+      placeholder: "Ingresa el correo",
+      filter: true
+    },
+    {
       name: "name",
       label: "Nombre",
       type: "text",
       required: true,
       component: "q-input",
-      placeholder: "Ingresar el nombre",
+      placeholder: "Ingresa el nombre",
       filter: true
     },
     {
-      name: "phone_number",
-      label: "Número de teléfono",
+      name: "last_name",
+      label: "Apellido",
       type: "text",
       required: true,
       component: "q-input",
-      placeholder: "Ingresar el número de teléfono",
+      placeholder: "Ingresa el apellido",
+      filter: true
     },
     {
       name: "username",
@@ -70,23 +82,35 @@ export const formUserConfig = {
       type: "text",
       required: true,
       component: "q-input",
-      placeholder: "Ingresar el nombre de usuario",
+      placeholder: "Ingresa el nombre de usuario",
+      filter: true
     },
     {
-      name: "email",
-      label: "Correo electrónico",
+      name: "phone_number",
+      label: "Teléfono",
       type: "text",
       required: true,
       component: "q-input",
-      placeholder: "Ingresar el correo electrónico",
+      placeholder: "Ingresa el teléfono",
+      filter: true
     },
     {
-      name: "password",
-      label: "Contraseña",
-      type: "password",
+      name: "address",
+      label: "Dirección",
+      type: "text",
       required: true,
       component: "q-input",
-      placeholder: "Ingresar la contraseña",
+      placeholder: "Ingresa la dirección",
+      filter: true
     },
+    {
+      name: "document_number",
+      label: "Documento",
+      type: "text",
+      required: true,
+      component: "q-input",
+      placeholder: "Ingresa el documento",
+      filter: true
+    }
   ],
 };

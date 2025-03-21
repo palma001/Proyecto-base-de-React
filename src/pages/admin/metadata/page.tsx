@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable react-hooks/exhaustive-deps */
 import React from "react";
 import QTable from "../../../components/ui/QTable";
 import { useNavigate, useParams } from "react-router";
