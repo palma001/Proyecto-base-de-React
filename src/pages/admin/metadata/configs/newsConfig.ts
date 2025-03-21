@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import newsRule from "./rules/newsRule";
 import moment from "moment";
 
-const status = {
+const status: any = {
   draft: "Borrador",
   published: "Publicado",
   archived: "Archivado",
@@ -34,17 +35,17 @@ export const tableNewsConfig = {
     {
       header: "Fecha",
       accessorKey: "published_at",
-      accessorFn: (row) => moment(row.published_at).format("DD/MM/YYYY"),
+      accessorFn: (row: any) => moment(row.published_at).format("DD/MM/YYYY"),
     },
     {
       header: "Estado",
       accessorKey: "status",
-      accessorFn: (row) => status[row.status],
+      accessorFn: (row: any) => status[row.status],
     },
     {
       header: "Destacado",
       accessorKey: "is_featured",
-      accessorFn: (row) => (row.is_featured ? "Si" : "No"),
+      accessorFn: (row: any) => (row.is_featured ? "Si" : "No"),
     },
   ],
 };

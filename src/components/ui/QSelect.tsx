@@ -11,7 +11,7 @@ import { darkModeStyles } from "./theme/QSelect";
  * @param {string} inputValue the value to filter
  */
 const filterColors = async (
-  inputValue?: string,
+  // inputValue?: string,
   services?: string,
   labelValue?: string,
   selectedValue?: string,
