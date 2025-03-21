@@ -19,7 +19,7 @@ export const authenticationStore = create<AuthenticationStore>()(
       session: null,
 
       handlerSession: (session: SessionData) =>
-        set(() => ({ session: encryptData(session) })),
+        set(() => ({ session: encryptData(session) as string })),
 
       getSession: () => {
         const { session } = get();
