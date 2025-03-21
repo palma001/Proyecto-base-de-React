@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useCallback } from "react";
+import React from "react";
 import { useDropzone } from "react-dropzone";
 
 export default function Drop({ onLoaded, children }: any) {
-  const onDrop = useCallback((acceptedFiles: any) => {
+  const onDrop = React.useCallback((acceptedFiles: any) => {
     onLoaded(acceptedFiles);
   }, []);
   const { getRootProps, getInputProps } = useDropzone({

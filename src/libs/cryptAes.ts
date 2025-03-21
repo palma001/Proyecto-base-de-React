@@ -19,7 +19,7 @@ export const encryptData = (data: any) => {
   }
 };
 
-export const decryptData = (data) => {
+export const decryptData = (data: any) => {
   try {
     const options = {
       mode: CryptoJS.mode.CBC,
@@ -33,7 +33,7 @@ export const decryptData = (data) => {
     );
     const decryptedText = encryptedData.toString(CryptoJS.enc.Utf8);
     return JSON.parse(decryptedText);
-  } catch (error) {
-    return data;
+  } catch (error: any) {
+    return error;
   }
 };

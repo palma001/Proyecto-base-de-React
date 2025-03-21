@@ -11,13 +11,14 @@ import { darkModeStyles } from "./theme/QSelect";
  * @param {string} inputValue the value to filter
  */
 const filterColors = async (
-  // inputValue?: string,
+  inputValue?: string,
   services?: string,
   labelValue?: string,
   selectedValue?: string,
   options: Array<any> = []
 ) => {
   if (services) {
+    console.log(inputValue)
     const { data } = await api.get(services);
     return data.map((option: any) => {
       return {
