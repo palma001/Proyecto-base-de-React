@@ -1,11 +1,11 @@
-import { SessionData } from "react-router";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Footer from "../components/Landing/Footer";
 import Navbar from "../components/Landing/Navbar";
 import { authenticationStore } from "../stores/authorization";
 
 export const LandingLayout = ({ children }: { children: React.ReactNode }) => {
   const { getSession } = authenticationStore();
-  const session: SessionData | null = getSession();
+  const session: any = getSession();
   return (
     <>
       <title>Quote | Inicio</title>

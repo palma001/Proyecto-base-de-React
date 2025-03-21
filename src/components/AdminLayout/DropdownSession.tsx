@@ -3,6 +3,7 @@ import { SessionData } from "../../interfaces/Session";
 import { useNavigate } from "react-router";
 import { FaRightFromBracket } from "react-icons/fa6";
 import { authenticationStore } from "../../stores/authorization";
+import { ROUTES } from "../../routes/routes";
 import {
   Dropdown,
   DropdownTrigger,
@@ -12,12 +13,11 @@ import {
   DropdownSection,
   Button,
 } from "@heroui/react";
-import { ROUTES } from "../../routes/routes";
 
 export default function DropdownSession({
   session,
 }: {
-  session?: SessionData | null;
+  session?: SessionData
 }) {
   /**
    * Logout function from store

@@ -7,7 +7,6 @@ import { Logo } from "../icons";
 import ThemeSwitch from "../theme-switch";
 import { siteConfig } from "../../config/site";
 import { ROUTES } from "../../routes/routes";
-import { SessionData } from "react-router";
 import DropdownSession from "../AdminLayout/DropdownSession";
 import {
   Navbar as NextUINavbar,
@@ -18,6 +17,7 @@ import {
   NavbarMenu,
   NavbarMenuItem,
 } from "@heroui/navbar";
+import { SessionData } from "../../interfaces/Session";
 
 export default function Navbar({
   session,
@@ -80,7 +80,9 @@ export default function Navbar({
       >
         <ThemeSwitch />
         <NavbarItem className="hidden md:flex">
-          {!session ? (
+          {session ? (
+            <DropdownSession session={session} />
+          ) : (
             <Button
               as={Link}
               href={ROUTES.LOGIN}
@@ -89,8 +91,6 @@ export default function Navbar({
             >
               Iniciar sesión
             </Button>
-          ) : (
-            <DropdownSession session={session} />
           )}
         </NavbarItem>
       </NavbarContent>
