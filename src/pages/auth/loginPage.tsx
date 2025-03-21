@@ -77,7 +77,7 @@ export default function Component() {
             <Checkbox name="remember" size="sm">
               Recuérdame
             </Checkbox>
-            <Link className="text-default-500" href="#" size="sm">
+            <Link className="text-default-500" href="/auth/forgot-password" size="sm">
               Olvidé mi contraseña
             </Link>
           </div>

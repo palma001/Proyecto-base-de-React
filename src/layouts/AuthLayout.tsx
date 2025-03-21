@@ -12,8 +12,8 @@ export default function AuthLayout() {
     <>
       <Navbar />
       <title>Quote | Inicio de sesión</title>
-      <div className="mt-10 w-[100wh] flex justify-center items-center">
-        <div className="text-center  grid w-full max-w-md flex-col gap-4 rounded-large bg-content1 pb-10 pt-6 shadow-small">
+      <div className="mt-10 flex justify-center items-center p-3">
+        <div className="text-center grid w-full max-w-md flex-col gap-4 rounded-large bg-content1 px-3 pb-10 pt-6 shadow-small">
           <span className={title({ color: "violet" })}>Quote</span>
           <Outlet />
         </div>

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { createJSONStorage } from "zustand/middleware";
@@ -25,7 +24,7 @@ export const authenticationStore = create<AuthenticationStore>()(
         const { session } = get();
         if (session) {
           const dataDecrypt: SessionData = decryptData(session);
-          api.defaults.headers.common.authorization = `Bearer ${dataDecrypt.token}`;
+          api.defaults.headers.common.authorization = `Bearer ${dataDecrypt.access_token}`;
           return dataDecrypt;
         }
         return null;

@@ -27,6 +27,8 @@ export default function Navbar({
   onMenuClick?: () => void;
 }) {
 
+  // console.log(session);
+
   return (
     <NextUINavbar
       maxWidth="xl"

@@ -1,23 +1,23 @@
-import bankRule from "./rules/bankRule";
+import rolRule from "./rules/rolRule";
 
 /**
  * Config table of warehouse entity
  * @type {TableConfigProps}
  */
-export const tableBankConfig = {
+export const tableRolConfig = {
   defaultPagination: {
     pageIndex: 0,
     pageSize: 20,
   },
-  link: "users",
+  link: "roles",
   columns: [
     {
       header: "Nombre",
       accessorKey: "name",
     },
     {
-      header: "Codigo",
-      accessorKey: "code",
+      header: "Permisos",
+      accessorKey: "permissions",
     }
   ],
 };
@@ -25,26 +25,26 @@ export const tableBankConfig = {
  * Config form of warehouse entity
  * @type {FormConfigProps}
  */
-export const formBankConfig = {
-  title: "Banco",
-  formSchema: bankRule,
+export const formRolConfig = {
+  title: "rol",
+  formSchema: rolRule,
   fields: [
     {
       name: "name",
-      label: "Nombre",
+      label: "Nombre del rol",
       type: "text",
       required: true,
       component: "q-input",
-      placeholder: "Ingresar el nombre",
+      placeholder: "Ingresa el nombre",
       filter: true
     },
     {
-      name: "code",
-      label: "Codigo",
+      name: "permissions",
+      label: "Permisos",
       type: "text",
       required: true,
       component: "q-input",
-      placeholder: "Ingresar el codigo",
+      placeholder: "Ingresa los permisos",
       filter: true
     }
   ],

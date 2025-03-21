@@ -31,3 +31,13 @@ export const forgotPasswordRule = z.object({
   email: z.string()
     .email({ message: 'Correo Electrónico no válido' }),
 })
+
+export const resetPasswordRule = z.object({
+  password: z.string()
+    .min(1, { message: 'La contraseña es obligatoria' }),
+    password_confirmation: z.string()
+    .min(1, { message: 'La contraseña de confirmación es obligatoria' }),
+}).refine(data => data.password === data.password_confirmation, {
+  message: "Las contraseñas no coinciden",
+  path: ["confirmPassword"], // Path where the error message should appear
+})

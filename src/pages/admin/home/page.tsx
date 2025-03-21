@@ -15,7 +15,7 @@ export default function DASHBOARD() {
     <>
       <title>Panel | Quote</title>
       <div className="w-full h-[80vh] flex justify-center items-center">
-        <p className="text-4xl font-bold text-primary-600">Bienvenido {session?.user?.name}</p>
+        <p className="text-4xl font-bold text-primary-600">Bienvenido {session?.data?.name}</p>
       </div>
     </>
   )

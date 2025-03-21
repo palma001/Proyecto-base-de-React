@@ -1,27 +1,23 @@
-import userRule from "./rules/userRule";
+import clientRule from "./rules/clientRule";
 
 /**
  * Config table of warehouse entity
  * @type {TableConfigProps}
  */
-export const tableUserConfig = {
+export const tableClientConfig = {
   defaultPagination: {
     pageIndex: 0,
     pageSize: 20,
   },
-  link: "users",
+  link: "clients",
   columns: [
     {
       header: "Nombre",
       accessorKey: "name",
     },
     {
-      header: "Apellido",
-      accessorKey: "last_name",
-    },
-    {
-      header: "Nombre de usuario",
-      accessorKey: "username",
+      header: "Email",
+      accessorKey: "email",
     },
     {
       header: "Teléfono",
@@ -35,15 +31,20 @@ export const tableUserConfig = {
       header: "Documento",
       accessorKey: "document_number",
     },
+    {
+      header: "Empresa",
+      accessorKey: "company",
+      // accessorFn: (row: any) => row.role?.name,
+    }
   ],
 };
 /**
  * Config form of warehouse entity
  * @type {FormConfigProps}
  */
-export const formUserConfig = {
-  title: "usuario",
-  formSchema: userRule,
+export const formClientConfig = {
+  title: "cliente",
+  formSchema: clientRule,
   fields: [
     {
       name: "email",
@@ -61,24 +62,6 @@ export const formUserConfig = {
       required: true,
       component: "q-input",
       placeholder: "Ingresa el nombre",
-      filter: true
-    },
-    {
-      name: "last_name",
-      label: "Apellido",
-      type: "text",
-      required: true,
-      component: "q-input",
-      placeholder: "Ingresa el apellido",
-      filter: true
-    },
-    {
-      name: "username",
-      label: "Nombre de usuario",
-      type: "text",
-      required: true,
-      component: "q-input",
-      placeholder: "Ingresa el nombre de usuario",
       filter: true
     },
     {
@@ -106,6 +89,15 @@ export const formUserConfig = {
       required: true,
       component: "q-input",
       placeholder: "Ingresa el documento",
+      filter: true
+    },
+    {
+      name: "company",
+      label: "Empresa",
+      type: "text",
+      required: true,
+      component: "q-input",
+      placeholder: "Ingresa la empresa",
       filter: true
     }
   ],
