@@ -111,7 +111,7 @@ export default function LoginPage() {
         <p className="shrink-0 text-tiny text-default-500">O</p>
         <Divider className="flex-1" />
       </div>
-      <div className="flex justify-center items-center text-xs">
+      <div className="flex justify-center items-center text-sm">
         <Link to="/auth/sign-in">
           Ya tienes una cuenta?{" "}
           <span className="text-primary">Inicia sesión aquí</span>
