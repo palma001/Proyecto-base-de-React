@@ -19,6 +19,8 @@ import {
 } from "@heroui/navbar";
 import { SessionData } from "../../interfaces/Session";
 
+import DropMenu from "../ui/DropMenu";
+
 export default function Navbar({
   session,
   onMenuClick,
@@ -26,8 +28,6 @@ export default function Navbar({
   session?: SessionData | null;
   onMenuClick?: () => void;
 }) {
-
-  // console.log(session);
 
   return (
     <NextUINavbar
@@ -78,6 +78,7 @@ export default function Navbar({
         className="hidden sm:flex basis-1/5 sm:basis-full"
         justify="end"
       >
+        <DropMenu />
         <ThemeSwitch />
         <NavbarItem className="hidden md:flex">
           {session ? (
@@ -96,6 +97,7 @@ export default function Navbar({
       </NavbarContent>
 
       <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
+        <DropMenu />
         <ThemeSwitch />
         <NavbarMenuToggle />
       </NavbarContent>

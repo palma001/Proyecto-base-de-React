@@ -3,14 +3,14 @@ export type SiteConfig = typeof siteConfig;
 export const siteConfig = {
   navItems: [
     {
-      label: "Iniciar sesión",
-      href: "/auth/sign-in",
+      label: "Inicio",
+      href: "/",
     },
   ],
   navMenuItems: [
     {
-      label: "Iniciar sesión",
-      href: "/auth/sign-in",
+      label: "Inicio",
+      href: "/",
     },
   ],
   links: {
