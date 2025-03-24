@@ -24,7 +24,7 @@ export const authenticationStore = create<AuthenticationStore>()(
         const { session } = get();
         if (session) {
           const dataDecrypt: SessionData = decryptData(session);
-          api.defaults.headers.common.authorization = `Bearer ${dataDecrypt.data.access_token}`;
+          api.defaults.headers.common.authorization = `Bearer ${dataDecrypt?.data?.token}`;
           return dataDecrypt;
         }
         return null;

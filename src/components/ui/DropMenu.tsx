@@ -18,7 +18,7 @@ export default function DropMenu() {
     {
       label: "Cambiar empresa",
       icon: <RiExchangeLine size={20} />,
-      condition: session?.data?.user?.companies?.length > 1,
+      condition: session?.user?.companies?.length > 1,
       action: () => {
         toast.info("Cambiar empresa");
       },
@@ -35,8 +35,8 @@ export default function DropMenu() {
         </DropdownTrigger>
         <DropdownMenu>
             {
-              items.map((item) => item.condition ? (
-                <DropdownItem key={item.label} onPress={item.action}>
+              items.map((item, index) => item.condition ? (
+                <DropdownItem key={`${item.label}-${index}`} onPress={item.action}>
                   <p className="flex items-center gap-2 font-semibold">{item.icon} {item.label}</p>
                 </DropdownItem>
               ) : <></>)
