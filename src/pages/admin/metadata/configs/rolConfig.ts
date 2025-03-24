@@ -16,9 +16,9 @@ export const tableRolConfig = {
       accessorKey: "name",
     },
     {
-      header: "Permisos",
-      accessorKey: "permissions",
-    }
+      header: "Acrónimo",
+      accessorKey: "acronym",
+    },
   ],
 };
 /**
@@ -36,16 +36,16 @@ export const formRolConfig = {
       required: true,
       component: "q-input",
       placeholder: "Ingresa el nombre",
-      filter: true
+      filter: true,
     },
     {
-      name: "permissions",
-      label: "Permisos",
+      name: "acronym",
+      label: "Acrónimo",
       type: "text",
       required: true,
       component: "q-input",
-      placeholder: "Ingresa los permisos",
-      filter: true
-    }
+      placeholder: "Ingresa el acrónimo",
+      filter: true,
+    },
   ],
 };

@@ -1,5 +1,16 @@
 import userRule from "./rules/userRule";
 
+interface User {
+  name: string;
+  last_name: string;
+  email: string;
+  username: string;
+  role_id: number;
+  role?: {
+    name: string;
+  };
+}
+
 /**
  * Config table of warehouse entity
  * @type {TableConfigProps}
@@ -14,26 +25,27 @@ export const tableUserConfig = {
     {
       header: "Nombre",
       accessorKey: "name",
+      accessorFn: (row: User) => row.name || "-",
     },
     {
       header: "Apellido",
       accessorKey: "last_name",
+      accessorFn: (row: User) => row.last_name || "-",
+    },
+    {
+      header: "Correo electrónico",
+      accessorKey: "email",
+      accessorFn: (row: User) => row.email || "-",
     },
     {
       header: "Nombre de usuario",
       accessorKey: "username",
+      accessorFn: (row: User) => row.username || "-",
     },
     {
-      header: "Teléfono",
-      accessorKey: "phone_number",
-    },
-    {
-      header: "Dirección",
-      accessorKey: "address",
-    },
-    {
-      header: "Documento",
-      accessorKey: "document_number",
+      header: "Rol",
+      accessorKey: "role_id",
+      accessorFn: (row: User) => row.role?.name || "-",
     },
   ],
 };
@@ -52,7 +64,7 @@ export const formUserConfig = {
       required: true,
       component: "q-input",
       placeholder: "Ingresa el correo",
-      filter: true
+      filter: true,
     },
     {
       name: "name",
@@ -61,7 +73,7 @@ export const formUserConfig = {
       required: true,
       component: "q-input",
       placeholder: "Ingresa el nombre",
-      filter: true
+      filter: true,
     },
     {
       name: "last_name",
@@ -70,7 +82,7 @@ export const formUserConfig = {
       required: true,
       component: "q-input",
       placeholder: "Ingresa el apellido",
-      filter: true
+      filter: true,
     },
     {
       name: "username",
@@ -79,34 +91,25 @@ export const formUserConfig = {
       required: true,
       component: "q-input",
       placeholder: "Ingresa el nombre de usuario",
-      filter: true
+      filter: true,
     },
     {
-      name: "phone_number",
-      label: "Teléfono",
-      type: "text",
+      name: "password",
+      label: "Contraseña",
+      type: "password",
       required: true,
       component: "q-input",
-      placeholder: "Ingresa el teléfono",
-      filter: true
+      placeholder: "Ingresa la contraseña",
+      filter: true,
     },
     {
-      name: "address",
-      label: "Dirección",
-      type: "text",
+      name: "role_id",
+      label: "Rol",
+      type: "select",
       required: true,
-      component: "q-input",
-      placeholder: "Ingresa la dirección",
-      filter: true
+      component: "q-select",
+      placeholder: "Selecciona un rol",
+      filter: true,
     },
-    {
-      name: "document_number",
-      label: "Documento",
-      type: "text",
-      required: true,
-      component: "q-input",
-      placeholder: "Ingresa el documento",
-      filter: true
-    }
   ],
 };

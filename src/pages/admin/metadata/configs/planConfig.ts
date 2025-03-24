@@ -1,31 +1,35 @@
-import clientRule from "./rules/clientRule";
+import planRule from "./rules/planRule";
 
 /**
  * Config table of warehouse entity
  * @type {TableConfigProps}
  */
-export const tableClientConfig = {
+export const tablePlanConfig = {
   defaultPagination: {
     pageIndex: 0,
     pageSize: 20,
   },
-  link: "clients",
+  link: "plans",
   columns: [
+    {
+      header: "Id",
+      accessorKey: "id",
+    },
     {
       header: "Nombre",
       accessorKey: "name",
     },
     {
-      header: "Apellido",
-      accessorKey: "lastname",
+      header: "Código",
+      accessorKey: "code",
     },
     {
-      header: "Correo electrónico",
-      accessorKey: "email",
+      header: "Descripción",
+      accessorKey: "description",
     },
     {
-      header: "Número de teléfono",
-      accessorKey: "phone_number",
+      header: "Precio",
+      accessorKey: "price",
     },
   ],
 };
@@ -33,9 +37,9 @@ export const tableClientConfig = {
  * Config form of warehouse entity
  * @type {FormConfigProps}
  */
-export const formClientConfig = {
-  title: "cliente",
-  formSchema: clientRule,
+export const formPlanConfig = {
+  title: "Agregar plan",
+  formSchema: planRule,
   fields: [
     {
       name: "name",
@@ -46,28 +50,28 @@ export const formClientConfig = {
       placeholder: "Ingresar el nombre",
     },
     {
-      name: "lastname",
-      label: "Apellido",
+      name: "code",
+      label: "Código",
       type: "text",
       required: true,
       component: "q-input",
-      placeholder: "Ingresar el apellido",
+      placeholder: "Ingresar el código",
     },
     {
-      name: "email",
-      label: "Correo electrónico",
+      name: "description",
+      label: "Descripción",
       type: "text",
       required: true,
       component: "q-input",
-      placeholder: "Ingresar el correo electrónico",
+      placeholder: "Ingresar la descripción",
     },
     {
-      name: "phone_number",
-      label: "Número de teléfono",
+      name: "price",
+      label: "Precio",
       type: "text",
       required: true,
       component: "q-input",
-      placeholder: "Ingresar el número de teléfono",
+      placeholder: "Ingresar el precio",
     },
   ],
 };

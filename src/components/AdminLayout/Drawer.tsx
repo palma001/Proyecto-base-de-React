@@ -2,7 +2,7 @@ import { Accordion, AccordionItem, Link } from "@heroui/react";
 import { FaCircleNodes } from "react-icons/fa6";
 // import { LuLayoutPanelLeft } from "react-icons/lu";
 import {
-  // FaBuilding,
+  FaBuilding,
   // FaBuildingUser,
   // FaPiggyBank,
   // FaFileInvoiceDollar,
@@ -16,18 +16,21 @@ import {
 // import { BiMoneyWithdraw } from "react-icons/bi";
 // import { IoIosPricetags } from "react-icons/io";
 // import { IoDocument } from "react-icons/io5";
-import { 
+import {
   // FaFolder, 
-  FaUserLock, 
+  FaUserLock,
   // FaChartPie 
 } from "react-icons/fa";
 import { IconType } from "react-icons/lib";
+import { IoIosPricetags } from "react-icons/io";
+import { AiFillProduct } from "react-icons/ai";
+import { MdAltRoute } from "react-icons/md";
 
 interface DrawerProps {
   isOpen: boolean;
 }
 
-const navbarItems: 
+const navbarItems:
   {
     icon: IconType;
     text: string;
@@ -37,135 +40,150 @@ const navbarItems:
       href: string;
     }[];
   }[] = [
-  // {
-  //   icon: LuLayoutPanelLeft,
-  //   text: "Panel de control",
-  //   children: [
-  //     {
-  //       icon: FaChartPie,
-  //       text: "Estadísticas",
-  //       href: "#",
-  //     },
-  //   ],
-  // },
-  // {
-  //   icon: FaRegRectangleList,
-  //   text: "suscripciones",
-  //   children: [
-  //     {
-  //       icon: IoIosPricetags,
-  //       text: "Licitar | Cotizar",
-  //       href: "#",
-  //     },
-  //   ],
-  // },
-  // {
-  //   icon: FaFileInvoiceDollar,
-  //   text: "Impuestos y libros",
-  //   children: [
-  //     {
-  //       icon: BiMoneyWithdraw,
-  //       text: "Facturación",
-  //       href: "#",
-  //     },
-  //     {
-  //       icon: PiInvoice,
-  //       text: "Retenciones",
-  //       href: "#",
-  //     },
-  //   ],
-  // },
-  // {
-  //   icon: FaFolder,
-  //   text: "Documentos",
-  //   children: [
-  //     {
-  //       icon: IoDocument,
-  //       text: "Gestión de documentos",
-  //       href: "#",
-  //     },
-  //   ],
-  // },
-  // {
-  //   icon: FaBuilding,
-  //   text: "Clientes",
-  //   children: [
-  //     {
-  //       icon: FaBuilding,
-  //       text: "Clientes",
-  //       href: "#",
-  //     },
-  //     {
-  //       icon: FaBuildingUser,
-  //       text: "Compradores",
-  //       href: "#",
-  //     },
-  //   ],
-  // },
-  //cliente potencial
-  {
-    icon: FaUser,
-    text: "Leads",
-    children: [
-      {
-        icon: FaUser,
-        text: "Leads",
-        href: "/admin/leads",
-      },
-    ],
-  },
-  {
-    icon: FaGear,
-    text: "Configuración",
-    children: [
-      // {
-      //   icon: FaLandmark,
-      //   text: "Bancos",
-      //   href: "/admin/banks",
-      // },
-      // {
-      //   icon: FaPiggyBank,
-      //   text: "Cuentas bancarias",
-      //   href: "#",
-      // },
-      // {
-      //   icon: FaBuilding,
-      //   text: "Empresas",
-      //   href: "#",
-      // },
-      {
-        icon: FaCircleNodes,
-        text: "Módulos",
-        href: "#",
-      },
-      // {
-      //   icon: FaCoins,
-      //   text: "Monedas",
-      //   href: "/admin/currencies",
-      // },
-      // {
-      //   icon: FaCreditCard,
-      //   text: "Métodos de pago",
-      //   href: "/admin/payment-methods",
-      // },
-      // {
-      //   icon: FaUser,
-      //   text: "Usuarios",
-      //   href: "/admin/users",
-      // },
-      {
-        icon: FaUserGear,
-        text: "Roles",
-        href: "#",
-      },
-      {
-        icon: FaUserLock,
-        text: "Permisos",
-        href: "#",
-      },
-    ],
-  },
-];
+    // {
+    //   icon: LuLayoutPanelLeft,
+    //   text: "Panel de control",
+    //   children: [
+    //     {
+    //       icon: FaChartPie,
+    //       text: "Estadísticas",
+    //       href: "#",
+    //     },
+    //   ],
+    // },
+    // {
+    //   icon: FaRegRectangleList,
+    //   text: "suscripciones",
+    //   children: [
+    //     {
+    //       icon: IoIosPricetags,
+    //       text: "Licitar | Cotizar",
+    //       href: "#",
+    //     },
+    //   ],
+    // },
+    // {
+    //   icon: FaFileInvoiceDollar,
+    //   text: "Impuestos y libros",
+    //   children: [
+    //     {
+    //       icon: BiMoneyWithdraw,
+    //       text: "Facturación",
+    //       href: "#",
+    //     },
+    //     {
+    //       icon: PiInvoice,
+    //       text: "Retenciones",
+    //       href: "#",
+    //     },
+    //   ],
+    // },
+    // {
+    //   icon: FaFolder,
+    //   text: "Documentos",
+    //   children: [
+    //     {
+    //       icon: IoDocument,
+    //       text: "Gestión de documentos",
+    //       href: "#",
+    //     },
+    //   ],
+    // },
+    // {
+    //   icon: FaBuilding,
+    //   text: "Clientes",
+    //   children: [
+    //     {
+    //       icon: FaBuildingUser,
+    //       text: "Compradores",
+    //       href: "#",
+    //     },
+    //   ],
+    // },
+    //cliente potencial
+    {
+      icon: FaUser,
+      text: "Leads",
+      children: [
+        {
+          icon: FaUser,
+          text: "Leads",
+          href: "/admin/leads",
+        },
+      ],
+    },
+    {
+      icon: FaGear,
+      text: "Configuración",
+      children: [
+        // {
+        //   icon: FaLandmark,
+        //   text: "Bancos",
+        //   href: "/admin/banks",
+        // },
+        // {
+        //   icon: FaPiggyBank,
+        //   text: "Cuentas bancarias",
+        //   href: "#",
+        // },
+        // {
+        //   icon: FaBuilding,
+        //   text: "Empresas",
+        //   href: "#",
+        // },
+        {
+          icon: FaCircleNodes,
+          text: "Módulos",
+          href: "/admin/modules",
+        },
+        // {
+        //   icon: FaCoins,
+        //   text: "Monedas",
+        //   href: "/admin/currencies",
+        // },
+        // {
+        //   icon: FaCreditCard,
+        //   text: "Métodos de pago",
+        //   href: "/admin/payment-methods",
+        // },
+        {
+          icon: MdAltRoute,
+          text: "Modalidades",
+          href: "/admin/modalities",
+        },
+        {
+          icon: IoIosPricetags,
+          text: "Planes",
+          href: "/admin/plans",
+        },
+        {
+          icon: AiFillProduct,
+          text: "Productos",
+          href: "/admin/products",
+        },
+        {
+          icon: FaUser,
+          text: "Usuarios",
+          href: "/admin/users",
+        },
+        {
+          icon: FaBuilding,
+          text: "Clientes",
+          href: "/admin/clients",
+        },
+        {
+          icon: FaUserGear,
+          text: "Roles",
+          href: "/admin/roles",
+        },
+        {
+          icon: FaUserLock,
+          text: "Permisos",
+          href: "/admin/permissions",
+        },
+      ],
+    },
+  ];
 
 export default function Drawer({ isOpen }: DrawerProps) {
   return (
@@ -213,8 +231,8 @@ function DrawerLink({ icon: Icon, text, isActive, href }: DrawerLinkProps) {
     <Link
       href={href}
       className={`flex items-center px-4 py-2 text-sm ${isActive
-          ? "text-blue-400 bg-blue-500/10"
-          : "text-gray-400 hover:bg-white/5"
+        ? "text-blue-400 bg-blue-500/10"
+        : "text-gray-400 hover:bg-white/5"
         }`}
     >
       <Icon className="size-5 mr-3" />

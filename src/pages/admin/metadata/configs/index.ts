@@ -2,12 +2,24 @@
 import { formBankConfig, tableBankConfig } from "./bankConfig";
 import { formCurrencyConfig, tableCurrencyConfig } from "./currencyConfig";
 import { formEventConfig, tableEventConfig } from "./eventsConfig";
-import { formPaymentMethodConfig, tablePaymentMethodConfig } from "./paymentMethodConfig";
+import {
+  formPaymentMethodConfig,
+  tablePaymentMethodConfig,
+} from "./paymentMethodConfig";
 import { formUserConfig, tableUserConfig } from "./userConfig";
 import { formRolConfig, tableRolConfig } from "./rolConfig";
-import { formPermissionConfig, tablePermissionConfig } from "./permissionConfig";
+import {
+  formPermissionConfig,
+  tablePermissionConfig,
+} from "./permissionConfig";
 import { formModuleConfig, tableModuleConfig } from "./moduleConfig";
 import { formLeadConfig, tableLeadConfig } from "./leadConfig";
+import { formPlanConfig, tablePlanConfig } from "./planConfig";
+import { formProductConfig, tableProductConfig } from "./productConfig";
+import {
+  formModalitiesConfig,
+  tableModalitiesConfig,
+} from "./modalitiesConfig";
 
 export const config: any = {
   users: {
@@ -63,5 +75,23 @@ export const config: any = {
     tableTitle: "Lista de leads",
     table: tableLeadConfig,
     form: formLeadConfig,
+  },
+  plans: {
+    services: "plans",
+    tableTitle: "Lista de planes",
+    table: tablePlanConfig,
+    form: formPlanConfig,
+  },
+  products: {
+    services: "products",
+    tableTitle: "Lista de productos",
+    table: tableProductConfig,
+    form: formProductConfig,
+  },
+  modalities: {
+    services: "modalities",
+    tableTitle: "Lista de modalidades",
+    table: tableModalitiesConfig,
+    form: formModalitiesConfig,
   },
 };
