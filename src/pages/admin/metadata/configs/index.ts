@@ -7,6 +7,7 @@ import { formUserConfig, tableUserConfig } from "./userConfig";
 import { formRolConfig, tableRolConfig } from "./rolConfig";
 import { formPermissionConfig, tablePermissionConfig } from "./permissionConfig";
 import { formModuleConfig, tableModuleConfig } from "./moduleConfig";
+import { formLeadConfig, tableLeadConfig } from "./leadConfig";
 
 export const config: any = {
   users: {
@@ -56,5 +57,11 @@ export const config: any = {
     tableTitle: "Lista de módulos",
     table: tableModuleConfig,
     form: formModuleConfig,
+  },
+  leads: {
+    services: "leads",
+    tableTitle: "Lista de leads",
+    table: tableLeadConfig,
+    form: formLeadConfig,
   },
 };

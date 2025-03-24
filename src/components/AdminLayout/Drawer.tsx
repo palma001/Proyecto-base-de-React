@@ -110,7 +110,7 @@ const navbarItems:
       {
         icon: FaUser,
         text: "Leads",
-        href: "#",
+        href: "/admin/leads",
       },
     ],
   },

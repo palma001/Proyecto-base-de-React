@@ -66,7 +66,7 @@ export default function Metadata() {
             type: entity,
           },
         });
-        setData(data.data);
+        setData(data);
         setParams(dataToFilter);
       } catch (error: unknown) {
         toast.error((error as Error)?.message);

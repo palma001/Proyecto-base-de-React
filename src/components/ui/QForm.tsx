@@ -21,6 +21,8 @@ const QForm = ({
 }: any) => {
   const { fields, formSchema, disable, entity } = config;
   const [file, setFile]: any = React.useState({});
+  
+  console.log(disable);
 
   useEffect(() => {
     if (!loading) form.reset();
@@ -60,6 +62,8 @@ const QForm = ({
     return <>{error && error?.message}</>;
   };
 
+  console.log(defaultValues);
+
   return (
     <FormProvider {...form}>
       <form
@@ -74,7 +78,7 @@ const QForm = ({
             <FormComponent
               props={f}
               form={form}
-              disable={disable}
+              disable={disable || (defaultValues && f.notEditable)}
               entity={entity}
               handlerFile={handlerFile}
               file={file}

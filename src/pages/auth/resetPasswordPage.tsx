@@ -21,7 +21,6 @@ export default function ResetPasswordPage() {
   const token = searchParams.get("token");
   const email = searchParams.get("email");
   
-  console.log(token, email);
   const {
     register,
     handleSubmit,

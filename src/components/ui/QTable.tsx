@@ -58,6 +58,7 @@ export const QTable = ({
     },
     onSortingChange: setSorting,
   });
+
   return (
     <>
       <Table isStriped className={className} aria-label="arial-label">
@@ -91,7 +92,7 @@ export const QTable = ({
           </TableHeader>
         ))}
 
-        {data.length ? (
+        {data?.length ? (
           <TableBody className={bodyClass}>
             {table.getRowModel().rows.map((row: any) => (
               <TableRow
