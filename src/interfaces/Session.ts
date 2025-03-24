@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export interface SessionData {
     access_token: string;
-    data: User;
+    data: { user: User };
 }
 
 export interface User {
@@ -14,7 +14,7 @@ export interface User {
     last_name: string;
     name: string;
     phone_number: string;
-    picture_url: string;
+    image_url: string;
     roles: any[];
     username: string;
 }

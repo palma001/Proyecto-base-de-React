@@ -4,6 +4,9 @@ import { formCurrencyConfig, tableCurrencyConfig } from "./currencyConfig";
 import { formEventConfig, tableEventConfig } from "./eventsConfig";
 import { formPaymentMethodConfig, tablePaymentMethodConfig } from "./paymentMethodConfig";
 import { formUserConfig, tableUserConfig } from "./userConfig";
+import { formRolConfig, tableRolConfig } from "./rolConfig";
+import { formPermissionConfig, tablePermissionConfig } from "./permissionConfig";
+import { formModuleConfig, tableModuleConfig } from "./moduleConfig";
 
 export const config: any = {
   users: {
@@ -35,5 +38,23 @@ export const config: any = {
     tableTitle: "Lista de métodos de pago",
     table: tablePaymentMethodConfig,
     form: formPaymentMethodConfig,
+  },
+  roles: {
+    services: "roles",
+    tableTitle: "Lista de roles",
+    table: tableRolConfig,
+    form: formRolConfig,
+  },
+  permissions: {
+    services: "permissions",
+    tableTitle: "Lista de permisos",
+    table: tablePermissionConfig,
+    form: formPermissionConfig,
+  },
+  modules: {
+    services: "modules",
+    tableTitle: "Lista de módulos",
+    table: tableModuleConfig,
+    form: formModuleConfig,
   },
 };

@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import React from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import QTable from "../../../components/ui/QTable";
 import { useNavigate, useParams } from "react-router";
 import { config } from "./configs";
@@ -14,12 +13,12 @@ export default function Metadata() {
    * Get config by id
    * @type {string}
    */
-  const { entity }: any = useParams();
+  const { entity } = useParams();
   /**
    * Get config by id
    * @type {TableConfigProps}
    */
-  const configs = config[entity];
+  const configs = config[entity as keyof typeof config];
   /**
    * Navigate to add page
    */
@@ -28,34 +27,34 @@ export default function Metadata() {
    * Data of table
    * @type {Array}
    */
-  const [data, setData] = React.useState([]);
+  const [data, setData] = useState([]);
   /**
    * Indicates if data is loading
    * @type {boolean}
    */
-  const [loading, setLoading] = React.useState(false);
+  const [loading, setLoading] = useState(false);
 
   /**
    * Parameters for API requests
    * @type {Object}
    */
-  const [params, setParams] = React.useState({
+  const [params, setParams] = useState({
     sortBy: "id",
     sortOrder: "desc",
-  });
+  } as { [key: string]: string });
 
   /**
    * Flag to prevent multiple API calls
    * @type {React.MutableRefObject<boolean>}
    */
-  const isFetching = React.useRef(false);
+  const isFetching = useRef(false);
 
   /**
    * Fetches data for the table
    * @param {Object} dataToFilter Optional parameters to filter data
    */
-  const getData = React.useCallback(
-    async (dataToFilter: any = params) => {
+  const getData = useCallback(
+    async (dataToFilter: { [key: string]: string } = params) => {
       if (isFetching.current || !configs) return;
 
       isFetching.current = true;
@@ -67,10 +66,10 @@ export default function Metadata() {
             type: entity,
           },
         });
-        setData(data);
+        setData(data.data);
         setParams(dataToFilter);
-      } catch (error: any) {
-        toast.error(error?.response?.data?.message || error.message);
+      } catch (error: unknown) {
+        toast.error((error as Error)?.message);
       } finally {
         setLoading(false);
         isFetching.current = false;
@@ -83,10 +82,10 @@ export default function Metadata() {
    * Filters table data
    * @param {Object} data Data for filtering
    */
-  const filterData = (data: any) => {
+  const filterData = (data: { [key: string]: string }) => {
     getData({
       ...params,
-      dataFilter: data,
+      ...data,
     });
   };
 
@@ -94,12 +93,12 @@ export default function Metadata() {
    * Navigate to show page
    * @param {Object} row Selected row data
    */
-  const onRowClick = (row: any) => {
+  const onRowClick = (row: { id: number }) => {
     navigate(`show/${row.id}`);
   };
 
   // Fetch data when `entity` or `configs` change
-  React.useEffect(() => {
+  useEffect(() => {
     getData();
   }, [entity, configs, getData]);
 

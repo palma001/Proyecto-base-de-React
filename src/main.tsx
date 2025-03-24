@@ -7,7 +7,6 @@ import { ROUTES } from "./routes/routes";
 import LoginPage from "./pages/auth/loginPage";
 import RegisterPage from "./pages/auth/registerPage";
 import Home from "./pages/landing/home";
-import Stores from "./pages/landing/stores";
 import ForgotPasswordPage from "./pages/auth/forgotPasswordPage";
 import ResetPasswordPage from "./pages/auth/resetPasswordPage";
 import { Provider } from "./provider";
@@ -32,7 +31,6 @@ if (domNode) {
           <Provider>
             <Routes>
               <Route path={ROUTES.HOME} element={<Home />} />
-              <Route path={ROUTES.STORES} element={<Stores />} />
               <Route path={ROUTES.ADMIN} element={<AdminLayout />}>
                 <Route path={ROUTES.DASHBOARD} element={<DASHBOARD />} />
                 <Route path={ROUTES.ADMIN_METADATA} element={<Metadata />} />

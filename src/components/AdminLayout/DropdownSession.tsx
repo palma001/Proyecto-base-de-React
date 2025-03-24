@@ -46,7 +46,7 @@ export default function DropdownSession({
     <Dropdown placement="bottom-start">
       <DropdownTrigger>
         <Avatar
-          src={session?.data?.picture_url}
+          src={session?.data?.user?.image_url}
           className="cursor-pointer"
           classNames={{
             base: "bg-gradient-to-br from-primary to-secondary",
@@ -66,7 +66,7 @@ export default function DropdownSession({
             textValue="Perfil"
             startContent={
               <Avatar
-                src={session?.data?.picture_url}
+                src={session?.data?.user?.image_url}
                 classNames={{
                   base: "bg-gradient-to-br from-primary to-secondary",
                   icon: "text-white",
@@ -75,8 +75,8 @@ export default function DropdownSession({
             }
           >
             <div className="grid items-center">
-              <span className="font-semibold">{session?.data?.name || "Nombre"}</span>
-              <span className="text-tiny">@{session?.data?.username}</span>
+              <span className="font-semibold">{session?.data?.user?.name || "Nombre"}</span>
+              <span className="text-tiny">@{session?.data?.user?.username}</span>
             </div>
           </DropdownItem>
         </DropdownSection>
