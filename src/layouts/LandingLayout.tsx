@@ -8,7 +8,7 @@ export const LandingLayout = ({ children }: { children: React.ReactNode }) => {
   const session: any = getSession();
   return (
     <>
-      <title>Quote | Inicio</title>
+      <title>Subscription | Inicio</title>
       <div className="flex flex-col min-h-screen">
         <Navbar session={session} />
         <main className="flex-1 overflow-auto">{children}</main>

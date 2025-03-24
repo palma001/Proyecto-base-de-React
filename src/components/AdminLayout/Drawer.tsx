@@ -2,13 +2,13 @@ import { Accordion, AccordionItem, Link } from "@heroui/react";
 import { FaCircleNodes } from "react-icons/fa6";
 // import { LuLayoutPanelLeft } from "react-icons/lu";
 import {
-  FaBuilding,
+  // FaBuilding,
   // FaBuildingUser,
   // FaPiggyBank,
   // FaFileInvoiceDollar,
   // FaRegRectangleList,
   FaGear,
-  // FaUser,
+  FaUser,
   FaUserGear,
   // FaLandmark
 } from "react-icons/fa6";
@@ -102,6 +102,18 @@ const navbarItems:
   //     },
   //   ],
   // },
+  //cliente potencial
+  {
+    icon: FaUser,
+    text: "Leads",
+    children: [
+      {
+        icon: FaUser,
+        text: "Leads",
+        href: "#",
+      },
+    ],
+  },
   {
     icon: FaGear,
     text: "Configuración",
@@ -116,15 +128,15 @@ const navbarItems:
       //   text: "Cuentas bancarias",
       //   href: "#",
       // },
-      {
-        icon: FaBuilding,
-        text: "Empresas",
-        href: "/admin/companies",
-      },
+      // {
+      //   icon: FaBuilding,
+      //   text: "Empresas",
+      //   href: "#",
+      // },
       {
         icon: FaCircleNodes,
         text: "Módulos",
-        href: "/admin/modules",
+        href: "#",
       },
       // {
       //   icon: FaCoins,
@@ -144,12 +156,12 @@ const navbarItems:
       {
         icon: FaUserGear,
         text: "Roles",
-        href: "/admin/roles",
+        href: "#",
       },
       {
         icon: FaUserLock,
         text: "Permisos",
-        href: "/admin/permissions",
+        href: "#",
       },
     ],
   },

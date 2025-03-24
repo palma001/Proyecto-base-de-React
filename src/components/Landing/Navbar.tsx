@@ -54,7 +54,7 @@ export default function Navbar({
             href="/"
           >
             <Logo />
-            <p className="font-bold text-inherit">Quote</p>
+            <p className="font-bold text-inherit">Subscription</p>
           </Link>
         </NavbarBrand>
         <div className="hidden lg:flex gap-4 justify-start ml-2">

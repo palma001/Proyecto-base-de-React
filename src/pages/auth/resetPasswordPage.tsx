@@ -51,7 +51,7 @@ export default function ResetPasswordPage() {
         <h3 className="text-xl text-left font-semibold">
           Ingresa tu nueva contraseña
         </h3>
-        <p className="text-small text-default-500 text-left w-full">Bienvenido de nuevo a Quote</p>
+        <p className="text-small text-default-500 text-left w-full">Bienvenido de nuevo a Subscription</p>
       </div>
       <form onSubmit={handleSubmit(forgotPassword)} className="flex flex-col gap-3 w-full max-w-sm">
         <div className="flex flex-col flex-wrap gap-3 relative">

@@ -32,7 +32,7 @@ export default function AdminLayout() {
 
   return (
     <>
-      <title>Admin | Quote</title>
+      <title>Admin | Subscription</title>
       <div className="min-h-screen">
         <Navbar onMenuClick={toggleDrawer} session={session} />
         <div className="flex">
