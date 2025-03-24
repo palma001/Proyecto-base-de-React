@@ -31,7 +31,7 @@ export default function ResetPasswordPage() {
   });
 
   const forgotPassword = async (data: ResetPasswordInterface | any) => {
-    const res = await api.post("auth/password/reset", {
+    const res = await api.post("/authentication/password/reset", {
         ...data,
         token,
         email,

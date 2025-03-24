@@ -27,7 +27,7 @@ export default function Component() {
       event.preventDefault();
       setIsLoading(true);
       const formData = Object.fromEntries(new FormData(event.currentTarget));
-      const { data } = await api.post("/auth/login", formData);
+      const { data } = await api.post("/authentication/login", formData);
       handlerSession(data);
       navigate("/admin/home");
     } catch (error: any) {

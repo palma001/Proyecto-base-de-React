@@ -50,7 +50,7 @@ const navbarItems:
   // },
   // {
   //   icon: FaRegRectangleList,
-  //   text: "Licitaciones",
+  //   text: "suscripciones",
   //   children: [
   //     {
   //       icon: IoIosPricetags,
