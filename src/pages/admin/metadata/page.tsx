@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useCallback, useEffect, useRef, useState } from "react";
 import QTable from "../../../components/ui/QTable";
 import { useNavigate, useParams } from "react-router";
@@ -38,10 +39,10 @@ export default function Metadata() {
    * Parameters for API requests
    * @type {Object}
    */
-  const [params, setParams] = useState({
-    sortBy: "id",
-    sortOrder: "desc",
-  } as { [key: string]: string });
+  // const [params, setParams] = useState({
+  //   sortBy: "id",
+  //   sortOrder: "desc",
+  // } as { [key: string]: string });
 
   /**
    * Flag to prevent multiple API calls
@@ -54,7 +55,7 @@ export default function Metadata() {
    * @param {Object} dataToFilter Optional parameters to filter data
    */
   const getData = useCallback(
-    async (dataToFilter: { [key: string]: string } = params) => {
+    async (dataFilter: any) => {
       if (isFetching.current || !configs) return;
 
       isFetching.current = true;
@@ -62,12 +63,11 @@ export default function Metadata() {
         setLoading(true);
         const { data } = await api.get(configs.services, {
           params: {
-            ...dataToFilter,
+            dataFilter,
             type: entity,
           },
         });
         setData(data);
-        setParams(dataToFilter);
       } catch (error: unknown) {
         toast.error((error as Error)?.message);
       } finally {
@@ -75,18 +75,15 @@ export default function Metadata() {
         isFetching.current = false;
       }
     },
-    [configs, entity, params]
+    [configs, entity]
   );
 
   /**
    * Filters table data
    * @param {Object} data Data for filtering
    */
-  const filterData = (data: { [key: string]: string }) => {
-    getData({
-      ...params,
-      ...data,
-    });
+  const filterData = (dataFilter: { [key: string]: string }) => {
+    getData(dataFilter);
   };
 
   /**

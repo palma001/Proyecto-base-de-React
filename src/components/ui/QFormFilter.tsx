@@ -1,15 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
-<<<<<<< HEAD
-import { Form, Input, Textarea } from "@nextui-org/react";
-import { useForm } from "react-hook-form";
-import { Button } from "@nextui-org/react";
-=======
 import { Form, Input, Textarea } from "@heroui/react";
 import { useForm } from "react-hook-form";
 import { Button } from "@heroui/react";
->>>>>>> subscription/master
 import QT from "./QT";
 import QSelect from "./QSelect";
 import { title } from "../primitives";
@@ -20,55 +14,21 @@ const QFormFilter = ({
   handlerSubmit,
   children,
   buttons,
-  defaultValues,
 }: any) => {
   /**
    * Config form
    * @type {Object} config form
    */
   const { fields, disable, entity } = config;
-  /**
-   * Get default values
-   * @returns value defaults
-   */
-  const getDefaultValue = () => {
-    const value: any = {};
-    fields.map((field: any) => {
-      if (field?.value) {
-        value[field?.name] = field?.value;
-      } else {
-        value[field?.name] = "";
-      }
-    });
-    return value;
-  };
 
   useEffect(() => {
     if (!loading) form.reset();
   }, [loading]);
   /**
-   * Set values for select component
-   * @param value value entity
-   * @returns value formatted
-   */
-  const setObjectValues = (value: any) => {
-    for (const key in value) {
-      if (Object.prototype.hasOwnProperty.call(value, key)) {
-        const element = value[key];
-        if (element && typeof element === "object") {
-          value[key] = element.id;
-        }
-      }
-    }
-    return value;
-  };
-  /**
    * Form schema object
    * @type {Object} schema
    */
-  const form = useForm({
-    defaultValues: setObjectValues(defaultValues) || getDefaultValue(),
-  });
+  const form = useForm({});
   /**
    * Handler select value
    * @param {String} name name of component
@@ -83,8 +43,7 @@ const QFormFilter = ({
    */
   function onSubmit(e: any) {
     e.preventDefault();
-    const data = Object.fromEntries(new FormData(e.currentTarget));
-    if (handlerSubmit) handlerSubmit(data);
+    if (handlerSubmit) handlerSubmit(form.getValues());
   }
   /**
    * Set components type
@@ -98,8 +57,8 @@ const QFormFilter = ({
           <Input
             {...props}
             {...form.register(props.name)}
+            required={false}
             id={`form-${props.name}`}
-            disabled={disable}
             label={props.label || <QT word={`${entity}.${props.name}`} />}
             defaultValue={form.getValues(props.name)}
           />
@@ -150,7 +109,7 @@ const QFormFilter = ({
         {fields.map((f: any, index: number) => (
           <div key={index} className="w-full">
             {f.filter && (
-              <div key={index} className="mt-2 w-full">
+              <div key={index} className="mt-2 w-full px-1">
                 {setComponent(f)}
               </div>
             )}

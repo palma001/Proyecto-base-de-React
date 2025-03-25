@@ -154,7 +154,7 @@ export const formLeadConfig = {
         { label: "Completado", value: "completed" }
       ],
       placeholder: "Ingresa el estado",
-      filter: false
+      filter: true
     }
   ],
 };

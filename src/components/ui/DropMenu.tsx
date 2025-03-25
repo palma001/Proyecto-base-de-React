@@ -34,13 +34,17 @@ export default function DropMenu() {
           </Button>
         </DropdownTrigger>
         <DropdownMenu>
-            {
-              items.map((item, index) => item.condition ? (
-                <DropdownItem key={`${item.label}-${index}`} onPress={item.action}>
-                  <p className="flex items-center gap-2 font-semibold">{item.icon} {item.label}</p>
-                </DropdownItem>
-              ) : <></>)
-            }
+          {items.map((item, index) =>
+            item.condition ? (
+              <DropdownItem key={index} onPress={item.action}>
+                <p className="flex items-center gap-2 font-semibold">
+                  {item.icon} {item.label}
+                </p>
+              </DropdownItem>
+            ) : (
+              <></>
+            )
+          )}
         </DropdownMenu>
       </Dropdown>
     </>
