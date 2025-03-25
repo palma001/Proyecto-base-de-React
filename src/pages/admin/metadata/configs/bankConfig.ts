@@ -14,6 +14,10 @@ export const tableBankConfig = {
     {
       header: "Nombre",
       accessorKey: "name",
+    },
+    {
+      header: "Codigo",
+      accessorKey: "code",
     }
   ],
 };
@@ -32,6 +36,15 @@ export const formBankConfig = {
       required: true,
       component: "q-input",
       placeholder: "Ingresar el nombre",
+      filter: true
+    },
+    {
+      name: "code",
+      label: "Codigo",
+      type: "text",
+      required: true,
+      component: "q-input",
+      placeholder: "Ingresar el codigo",
       filter: true
     }
   ],

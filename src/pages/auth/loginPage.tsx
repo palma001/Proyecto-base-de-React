@@ -7,7 +7,7 @@ import {
   Link,
   Form,
   Divider,
-} from "@nextui-org/react";
+} from "@heroui/react";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { ROUTES } from "../../routes/routes";
 import { api } from "../../libs/axios";
@@ -27,7 +27,7 @@ export default function Component() {
       event.preventDefault();
       setIsLoading(true);
       const formData = Object.fromEntries(new FormData(event.currentTarget));
-      const { data } = await api.post("/auth/login", formData);
+      const { data } = await api.post("/authentication/login", formData);
       handlerSession(data);
       navigate("/admin/home");
     } catch (error: any) {
@@ -40,9 +40,9 @@ export default function Component() {
   return (
     <div className="flex h-full w-full items-center justify-center">
       <div className="flex w-full max-w-sm flex-col gap-4 rounded-large">
-        <div className="flex flex-col items-center pb-2">
-          <p className="text-xl font-medium">Bienvenido</p>
-          <p className="text-small text-default-500">
+        <div className="flex flex-col items-center pb-2 gap-1">
+          <p className="text-xl font-medium text-left w-full">Bienvenido de nuevo</p>
+          <p className="text-small text-default-500 text-left w-full">
             Inicie sesión en su cuenta para continuar
           </p>
         </div>
@@ -55,7 +55,6 @@ export default function Component() {
             isRequired
             label="Usuario o correo"
             name="username"
-            placeholder="Ingresa su usuario o correo"
             variant="bordered"
           />
           <Input
@@ -71,7 +70,6 @@ export default function Component() {
             }
             label="Contraseña"
             name="password"
-            placeholder="Ingrese su contraseña"
             type={isVisible ? "text" : "password"}
             variant="bordered"
           />
@@ -79,7 +77,7 @@ export default function Component() {
             <Checkbox name="remember" size="sm">
               Recuérdame
             </Checkbox>
-            <Link className="text-default-500" href="#" size="sm">
+            <Link className="text-default-500" href="/auth/forgot-password" size="sm">
               Olvidé mi contraseña
             </Link>
           </div>
@@ -89,7 +87,7 @@ export default function Component() {
             type="submit"
             isLoading={isLoading}
           >
-            Iniciar
+            Iniciar sesión
           </Button>
         </Form>
         <div className="flex items-center gap-4 py-2">
@@ -97,24 +95,8 @@ export default function Component() {
           <p className="shrink-0 text-tiny text-default-500">O</p>
           <Divider className="flex-1" />
         </div>
-        {/* <div className="flex flex-col gap-2">
-          <Button
-            startContent={<Icon icon="flat-color-icons:google" width={24} />}
-            variant="bordered"
-          >
-            Continue with Google
-          </Button>
-          <Button
-            startContent={
-              <Icon className="text-default-500" icon="fe:github" width={24} />
-            }
-            variant="bordered"
-          >
-            Continue with Github
-          </Button>
-        </div> */}
         <p className="text-center text-small">
-          ¿Necesitas crear una cuenta?&nbsp;
+          ¿No tienes una cuenta?&nbsp;
           <Link href={ROUTES.REGISTER} size="sm">
             Regístrate
           </Link>

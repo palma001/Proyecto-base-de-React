@@ -1,26 +1,16 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "Juega Online",
-  description: "Make beautiful websites regardless of your design experience.",
   navItems: [
     {
-      label: "Inicio",
-      href: "/",
-    },
-    {
-      label: "Juegos",
-      href: "/games",
+      label: "Iniciar sesión",
+      href: "/auth/sign-in",
     },
   ],
   navMenuItems: [
     {
-      label: "Inicio",
-      href: "/",
-    },
-    {
-      label: "Juegos",
-      href: "/games",
+      label: "Iniciar sesión",
+      href: "/auth/sign-in",
     },
   ],
   links: {

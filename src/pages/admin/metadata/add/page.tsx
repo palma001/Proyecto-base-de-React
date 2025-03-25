@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router";
 import { config } from "../configs";
 import QForm from "../../../../components/ui/QForm";
 import { toast } from "sonner";
-import { BreadcrumbItem, Breadcrumbs } from "@nextui-org/react";
+import { BreadcrumbItem, Breadcrumbs } from "@heroui/react";
 import NotFoundPage from "../../../404/page";
 import { api } from "../../../../libs/axios";
 

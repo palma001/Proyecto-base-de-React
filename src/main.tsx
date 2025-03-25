@@ -7,8 +7,8 @@ import { ROUTES } from "./routes/routes";
 import LoginPage from "./pages/auth/loginPage";
 import RegisterPage from "./pages/auth/registerPage";
 import Home from "./pages/landing/home";
-import Stores from "./pages/landing/stores";
 import ForgotPasswordPage from "./pages/auth/forgotPasswordPage";
+import ResetPasswordPage from "./pages/auth/resetPasswordPage";
 import { Provider } from "./provider";
 import DASHBOARD from "./pages/admin/home/page";
 import AdminLayout from "./pages/admin/layout";
@@ -17,6 +17,7 @@ import MetadataAdd from "./pages/admin/metadata/add/page";
 import MetadataShow from "./pages/admin/metadata/show/page";
 import Profile from "./pages/profile/page";
 import "./i18n";
+import { Toaster } from "sonner";
 
 const domNode = document.getElementById("root");
 
@@ -30,7 +31,6 @@ if (domNode) {
           <Provider>
             <Routes>
               <Route path={ROUTES.HOME} element={<Home />} />
-              <Route path={ROUTES.STORES} element={<Stores />} />
               <Route path={ROUTES.ADMIN} element={<AdminLayout />}>
                 <Route path={ROUTES.DASHBOARD} element={<DASHBOARD />} />
                 <Route path={ROUTES.ADMIN_METADATA} element={<Metadata />} />
@@ -51,9 +51,13 @@ if (domNode) {
                   path={ROUTES.FORGOT_PASSWORD}
                   element={<ForgotPasswordPage />}
                 />
+                <Route
+                  path={ROUTES.RESET_PASSWORD}
+                  element={<ResetPasswordPage />}
+                />
               </Route>
             </Routes>
-            {/* <Toaster /> */}
+            <Toaster />
           </Provider>
         </BrowserRouter>
       </React.StrictMode>

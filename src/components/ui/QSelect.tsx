@@ -18,6 +18,7 @@ const filterColors = async (
   options: Array<any> = []
 ) => {
   if (services) {
+    console.log(inputValue)
     const { data } = await api.get(services);
     return data.map((option: any) => {
       return {

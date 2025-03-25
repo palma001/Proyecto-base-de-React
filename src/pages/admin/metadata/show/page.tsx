@@ -19,7 +19,7 @@ import {
   useDisclosure,
   Breadcrumbs,
   BreadcrumbItem,
-} from "@nextui-org/react";
+} from "@heroui/react";
 
 export default function MetadataShow() {
   const navigate = useNavigate();

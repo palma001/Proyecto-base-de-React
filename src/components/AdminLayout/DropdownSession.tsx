@@ -3,21 +3,21 @@ import { SessionData } from "../../interfaces/Session";
 import { useNavigate } from "react-router";
 import { FaRightFromBracket } from "react-icons/fa6";
 import { authenticationStore } from "../../stores/authorization";
+import { ROUTES } from "../../routes/routes";
 import {
   Dropdown,
   DropdownTrigger,
   DropdownMenu,
   DropdownItem,
-  User,
   Avatar,
   DropdownSection,
   Button,
-} from "@nextui-org/react";
+} from "@heroui/react";
 
 export default function DropdownSession({
   session,
 }: {
-  session?: SessionData | null;
+  session?: SessionData
 }) {
   /**
    * Logout function from store
@@ -37,7 +37,7 @@ export default function DropdownSession({
         logout();
         break;
       default:
-        navigate("/admin/profile");
+        navigate(ROUTES.PROFILE);
         break;
     }
   };
@@ -46,7 +46,7 @@ export default function DropdownSession({
     <Dropdown placement="bottom-start">
       <DropdownTrigger>
         <Avatar
-          src={session?.user?.profile_picture}
+          src={session?.user?.image_url}
           className="cursor-pointer"
           classNames={{
             base: "bg-gradient-to-br from-primary to-secondary",
@@ -63,9 +63,10 @@ export default function DropdownSession({
         <DropdownSection showDivider>
           <DropdownItem
             key="profile"
+            textValue="Perfil"
             startContent={
               <Avatar
-                src={session?.user?.profile_picture}
+                src={session?.user?.image_url}
                 classNames={{
                   base: "bg-gradient-to-br from-primary to-secondary",
                   icon: "text-white",
@@ -74,19 +75,20 @@ export default function DropdownSession({
             }
           >
             <div className="grid items-center">
-              <span className="font-semibold">{session?.user?.name}</span>
+              <span className="font-semibold">{session?.user?.name || "Nombre"}</span>
               <span className="text-tiny">@{session?.user?.username}</span>
             </div>
           </DropdownItem>
         </DropdownSection>
         <DropdownSection>
           <DropdownItem
+            key="logout"
+            textValue="logout"
             startContent={
               <Button isIconOnly variant="solid" className="rounded-full">
                 <FaRightFromBracket size={20} />
               </Button>
             }
-            key="logout"
             onPress={logout}
           >
             <span className="font-semibold">Cerrar sesión</span>

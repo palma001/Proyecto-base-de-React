@@ -1,4 +1,3 @@
-import React from "react";
 import { authenticationStore } from "../../../stores/authorization";
 import { SessionData } from "react-router";
 
@@ -12,5 +11,12 @@ export default function DASHBOARD() {
    */
   const session: SessionData | null = getSession();
 
-  return <div>Welcome {session?.user?.name}</div>;
+  return (
+    <>
+      <title>Panel | Subscription</title>
+      <div className="w-full h-[80vh] flex justify-center items-center">
+        <p className="text-4xl font-bold text-primary-600">Bienvenido {session?.user?.name}</p>
+      </div>
+    </>
+  )
 }

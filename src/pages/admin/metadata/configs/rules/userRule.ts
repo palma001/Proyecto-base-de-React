@@ -1,69 +1,14 @@
 import { z } from "zod";
 
 export const userRule = z.object({
-  name: z
-    .string({
-      required_error: "EL campo es requerido.",
-    })
-    .min(1, {
-      message: "EL campo es requerido.",
-    }),
-  last_name: z
-    .string({
-      required_error: "EL campo es requerido.",
-    })
-    .min(1, {
-      message: "EL campo es requerido.",
-    }),
-  document_number: z
-    .string({
-      required_error: "EL campo es requerido.",
-    })
-    .min(1, {
-      message: "EL campo es requerido.",
-    }),
-  phone_number: z
-    .string({
-      required_error: "EL campo es requerido.",
-    })
-    .min(1, {
-      message: "EL campo es requerido.",
-    }),
+  email: z.string().email({ message: "Correo Electrónico no válido" }),
+  name: z.string().min(1, { message: "El nombre es obligatorio" }),
+  last_name: z.string().min(1, { message: "El apellido es obligatorio" }),
   username: z
-    .string({
-      required_error: "EL campo es requerido.",
-    })
-    .min(1, {
-      message: "EL campo es requerido.",
-    }),
-  password: z
-    .string({
-      required_error: "EL campo es requerido.",
-    })
-    .min(1, {
-      message: "EL campo es requerido.",
-    }),
-  email: z
-    .string({
-      required_error: "EL campo es requerido.",
-    })
-    .email({
-      message: "Debe ser un correo válido.",
-    }),
-  gender: z
-    .string({
-      required_error: "EL campo es requerido.",
-    })
-    .min(1, {
-      message: "EL campo es requerido.",
-    }),
-  birthdate: z
-    .string({
-      required_error: "EL campo es requerido.",
-    })
-    .min(1, {
-      message: "EL campo es requerido.",
-    }),
+    .string()
+    .min(1, { message: "El nombre de usuario es obligatorio" }),
+  password: z.string().min(1, { message: "La contraseña es obligatoria" }),
+  role_id: z.number().min(1, { message: "Debes seleccionar un rol" }),
 });
 
 export default userRule;

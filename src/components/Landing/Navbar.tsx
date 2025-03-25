@@ -1,13 +1,12 @@
-import { Button } from "@nextui-org/button"
-import { Link } from "@nextui-org/link";
-import { link as linkStyles } from "@nextui-org/theme";
+import { Button } from "@heroui/react"
+import { Link } from "@heroui/link";
+import { link as linkStyles } from "@heroui/theme";
 import clsx from "clsx";
 import { FaBars, FaRightToBracket } from "react-icons/fa6";
 import { Logo } from "../icons";
 import ThemeSwitch from "../theme-switch";
 import { siteConfig } from "../../config/site";
 import { ROUTES } from "../../routes/routes";
-import { SessionData } from "react-router";
 import DropdownSession from "../AdminLayout/DropdownSession";
 import {
   Navbar as NextUINavbar,
@@ -17,7 +16,10 @@ import {
   NavbarMenuToggle,
   NavbarMenu,
   NavbarMenuItem,
-} from "@nextui-org/navbar";
+} from "@heroui/navbar";
+import { SessionData } from "../../interfaces/Session";
+
+import DropMenu from "../ui/DropMenu";
 
 export default function Navbar({
   session,
@@ -52,7 +54,7 @@ export default function Navbar({
             href="/"
           >
             <Logo />
-            <p className="font-bold text-inherit">Bingo Online</p>
+            <p className="font-bold text-inherit">Subscription</p>
           </Link>
         </NavbarBrand>
         <div className="hidden lg:flex gap-4 justify-start ml-2">
@@ -76,9 +78,12 @@ export default function Navbar({
         className="hidden sm:flex basis-1/5 sm:basis-full"
         justify="end"
       >
+        <DropMenu />
         <ThemeSwitch />
         <NavbarItem className="hidden md:flex">
-          {!session ? (
+          {session ? (
+            <DropdownSession session={session} />
+          ) : (
             <Button
               as={Link}
               href={ROUTES.LOGIN}
@@ -87,13 +92,12 @@ export default function Navbar({
             >
               Iniciar sesión
             </Button>
-          ) : (
-            <DropdownSession session={session} />
           )}
         </NavbarItem>
       </NavbarContent>
 
       <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
+        <DropMenu />
         <ThemeSwitch />
         <NavbarMenuToggle />
       </NavbarContent>

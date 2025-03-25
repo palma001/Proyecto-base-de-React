@@ -1,5 +1,15 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import userRule from "./rules/userRule";
+
+interface User {
+  name: string;
+  last_name: string;
+  email: string;
+  username: string;
+  role_id: number;
+  role?: {
+    name: string;
+  };
+}
 
 /**
  * Config table of warehouse entity
@@ -13,29 +23,29 @@ export const tableUserConfig = {
   link: "users",
   columns: [
     {
-      header: "Id",
-      accessorKey: "id",
-    },
-    {
       header: "Nombre",
       accessorKey: "name",
+      accessorFn: (row: User) => row.name || "-",
     },
     {
-      header: "Número de teléfono",
-      accessorKey: "phone_number",
-    },
-    {
-      header: "Nombre de usuario",
-      accessorKey: "username",
+      header: "Apellido",
+      accessorKey: "last_name",
+      accessorFn: (row: User) => row.last_name || "-",
     },
     {
       header: "Correo electrónico",
       accessorKey: "email",
+      accessorFn: (row: User) => row.email || "-",
+    },
+    {
+      header: "Nombre de usuario",
+      accessorKey: "username",
+      accessorFn: (row: User) => row.username || "-",
     },
     {
       header: "Rol",
-      accessorKey: "role",
-      accessorFn: (row: any) => row?.role?.name || "-",
+      accessorKey: "role_id",
+      accessorFn: (row: User) => row.role?.name || "-",
     },
   ],
 };
@@ -48,21 +58,31 @@ export const formUserConfig = {
   formSchema: userRule,
   fields: [
     {
+      name: "email",
+      label: "Correo",
+      type: "text",
+      required: true,
+      component: "q-input",
+      placeholder: "Ingresa el correo",
+      filter: true,
+    },
+    {
       name: "name",
       label: "Nombre",
       type: "text",
       required: true,
       component: "q-input",
-      placeholder: "Ingresar el nombre",
-      filter: true
+      placeholder: "Ingresa el nombre",
+      filter: true,
     },
     {
-      name: "phone_number",
-      label: "Número de teléfono",
+      name: "last_name",
+      label: "Apellido",
       type: "text",
       required: true,
       component: "q-input",
-      placeholder: "Ingresar el número de teléfono",
+      placeholder: "Ingresa el apellido",
+      filter: true,
     },
     {
       name: "username",
@@ -70,15 +90,8 @@ export const formUserConfig = {
       type: "text",
       required: true,
       component: "q-input",
-      placeholder: "Ingresar el nombre de usuario",
-    },
-    {
-      name: "email",
-      label: "Correo electrónico",
-      type: "text",
-      required: true,
-      component: "q-input",
-      placeholder: "Ingresar el correo electrónico",
+      placeholder: "Ingresa el nombre de usuario",
+      filter: true,
     },
     {
       name: "password",
@@ -86,7 +99,17 @@ export const formUserConfig = {
       type: "password",
       required: true,
       component: "q-input",
-      placeholder: "Ingresar la contraseña",
+      placeholder: "Ingresa la contraseña",
+      filter: true,
+    },
+    {
+      name: "role_id",
+      label: "Rol",
+      type: "select",
+      required: true,
+      component: "q-select",
+      placeholder: "Selecciona un rol",
+      filter: true,
     },
   ],
 };

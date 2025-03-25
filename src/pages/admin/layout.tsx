@@ -1,7 +1,6 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
-import { Navigate, Outlet, useNavigate } from "react-router";
+import { Outlet, useNavigate } from "react-router";
 import { ROUTES } from "../../routes/routes";
 import { authenticationStore } from "../../stores/authorization";
 import Navbar from "../../components/Landing/Navbar";
@@ -33,7 +32,7 @@ export default function AdminLayout() {
 
   return (
     <>
-      <title>Admin | Bingo Online</title>
+      <title>Admin | Subscription</title>
       <div className="min-h-screen">
         <Navbar onMenuClick={toggleDrawer} session={session} />
         <div className="flex">

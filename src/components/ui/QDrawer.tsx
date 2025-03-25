@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Button } from "@nextui-org/react";
+import { Button } from "@heroui/react";
 import { useState } from "react";
 import { BiPlus } from "react-icons/bi";
 import { FaFilter, FaFilterCircleXmark } from "react-icons/fa6";

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { FaSun, FaMoon } from "react-icons/fa";
 import { useTheme } from "next-themes";
-import { Button } from "@nextui-org/react";
+import { Button } from "@heroui/react";
 
 const ThemeSwitch = () => {
   const [isMounted, setIsMounted] = useState(false);

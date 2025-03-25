@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from "react";
-import { Input, Textarea, Button } from "@nextui-org/react";
+import { Input, Textarea, Button } from "@heroui/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, FormProvider, useForm } from "react-hook-form";
 import QT from "./QT";
@@ -21,6 +21,8 @@ const QForm = ({
 }: any) => {
   const { fields, formSchema, disable, entity } = config;
   const [file, setFile]: any = React.useState({});
+  
+  console.log(disable);
 
   useEffect(() => {
     if (!loading) form.reset();
@@ -60,6 +62,8 @@ const QForm = ({
     return <>{error && error?.message}</>;
   };
 
+  console.log(defaultValues);
+
   return (
     <FormProvider {...form}>
       <form
@@ -74,7 +78,7 @@ const QForm = ({
             <FormComponent
               props={f}
               form={form}
-              disable={disable}
+              disable={disable || (defaultValues && f.notEditable)}
               entity={entity}
               handlerFile={handlerFile}
               file={file}

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Select, SelectItem } from "@nextui-org/react";
+import { Select, SelectItem } from "@heroui/react";
 import React, { useEffect } from "react";
 import { api } from "../../libs/axios";
 // import QT from "./QT";
@@ -36,7 +36,7 @@ export default function QAutocomplete({
 
   useEffect(() => {
     if (value) {
-      const dataFund = options.find((option) => option.id === value);
+      const dataFund = options.find((option: any) => option?.id === value);
       if (dataFund) handlerValue(dataFund);
       // if (defaultValue) setValue(selectedValue && defaultValue[selectedValue]);
     }
@@ -79,7 +79,7 @@ export default function QAutocomplete({
       ) : (
         options.length > 0 &&
         options?.map((item: any) => (
-          <SelectItem key={item.id} value={item.id}>
+          <SelectItem key={item.id} data-value={String(item?.id)}>
             {item.name}
           </SelectItem>
         ))

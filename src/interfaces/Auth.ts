@@ -7,6 +7,11 @@ export interface ForgotPasswordInterface {
     email: string;
 }
 
+export interface ResetPasswordInterface {
+    password: string;
+    confirmPassword: string;
+}
+
 export interface RegisterFormInterface {
     name: string
     lastName: string

@@ -16,7 +16,7 @@ import {
   TableHeader,
   TableRow,
   cn,
-} from "@nextui-org/react";
+} from "@heroui/react";
 import {
   FaArrowDown,
   FaArrowUp,
@@ -91,7 +91,7 @@ export const QTable = ({
           </TableHeader>
         ))}
 
-        {data.length ? (
+        {data?.length ? (
           <TableBody className={bodyClass}>
             {table.getRowModel().rows.map((row: any) => (
               <TableRow

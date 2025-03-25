@@ -15,7 +15,7 @@ import {
   CardFooter,
   CardHeader,
   Input,
-} from "@nextui-org/react";
+} from "@heroui/react";
 import { api } from "../../libs/axios";
 
 type BasicForm = {

@@ -4,15 +4,17 @@ export interface SessionData {
     user: User;
 }
 
-
 export interface User {
     id: number;
-    name: string;
+    address: string;
+    document_number: string;
+    document_type_id: number;
     email: string;
+    is_root: boolean;
+    last_name: string;
+    name: string;
     phone_number: string;
+    image_url: string;
+    roles: any[];
     username: string;
-    profile_picture: string;
-    role_id: number;
-    created_at: string;
-    updated_at: string;
 }

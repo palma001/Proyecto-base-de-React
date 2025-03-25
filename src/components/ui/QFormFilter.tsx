@@ -1,9 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
+<<<<<<< HEAD
 import { Form, Input, Textarea } from "@nextui-org/react";
 import { useForm } from "react-hook-form";
 import { Button } from "@nextui-org/react";
+=======
+import { Form, Input, Textarea } from "@heroui/react";
+import { useForm } from "react-hook-form";
+import { Button } from "@heroui/react";
+>>>>>>> subscription/master
 import QT from "./QT";
 import QSelect from "./QSelect";
 import { title } from "../primitives";
